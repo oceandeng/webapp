@@ -5,7 +5,7 @@ var H5ComponentBase = function(name, config){
 	var config = config || {};
 	var id = ('h5C' + Math.random()).replace('.', '-');
 	var className = ' h5-component-' + config.type;
-	var component = $('<div class="h5-component ' + className + 'h5-component-name-' + name + '" id="' + id + '"></div>');
+	var component = $('<div class="h5-component ' + className + ' h5-component-name-' + name + '" id="' + id + '"></div>');
 
 	config.text && component.text(config.text);
 	config.width && component.width(config.width / 2);

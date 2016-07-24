@@ -40,8 +40,6 @@ var H5 = function(){
 			case 'base':
 				component = new H5ComponentBase(name, config);
 				break;
-
-				default:
 		}
 
 		page.append(component);
