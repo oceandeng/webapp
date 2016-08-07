@@ -27,13 +27,13 @@
             padding: 0;
         }
 
-        .h5_page{
+        .h5-page{
             background-image: url(images/page_bg.png);
         }
-        .h5_page_face{
+        .h5-page-face{
             background-image: url(images/face_bg.png);
         }
-        .h5_component_name_slogan{
+        .h5-component-name-slogan{
             -webkit-animation:rock 2s infinite 2s;
         }
         @-webkit-keyframes rock{
@@ -48,7 +48,7 @@
             100%{ transform:rotate(0deg)}
         }
 
-        .h5_component_name_caption{
+        .h5-component-name-caption{
             background-image: url(images/page_caption_bg.png);
             width: 283px;
             height: 160px;
@@ -57,7 +57,7 @@
             font-size: 20px;
             color: #fff;
         }
-        .h5_component_name_back{
+        .h5-component-name-back{
             top: 30px;
             -webkit-animation:back 2s infinite 2s;
         }
@@ -75,12 +75,10 @@
         <div class="double-bounce1"></div>
         <div class="double-bounce2"></div>
 
-        <div id="rate">0%</div>
+        <!-- <div id="rate">0%</div> -->
 
 
     </div>
-
-
 
     <!-- 加载 H5组件 相关资源 -->
     <script type="text/javascript">
@@ -440,7 +438,6 @@
                 },
                 center : true,
             })
-
             .addPage('tail')
                 .addComponent('logo',{
                     center:true,
@@ -480,11 +477,12 @@
                     }
                 })
 
-            .loader( [ 'images/tail_back.png','images/tail_share.png','images/tail_slogan.png' ] );
+            .loader(2);
+            // .loader( [ 'images/tail_back.png','images/tail_share.png','images/tail_slogan.png' ] );
 
         });
     </script>
-a
+
     </body>
 
 </html>

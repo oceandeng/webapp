@@ -20,15 +20,23 @@ var H5ComponentBase = function(name, config){
 			left: '50%'
 		})
 	}
+	// 自定义参数
+	if(typeof config.onclick == 'function'){
+		component.on('click', config.onclick);
+	}
 
     component.on('onLoad', function(){
-    	component.addClass(className + '-load').removeClass(className + '-leave');
-    	config.animateIn && component.animate(config.animateIn);
+    	setTimeout(function(){
+	    	component.addClass(className + '-load').removeClass(className + '-leave');
+	    	config.animateIn && component.animate(config.animateIn);
+    	}, config.delay || 0)
         return false;
     })
     component.on('onLeave', function(){
-    	component.addClass(className + '-leave').removeClass(className + '-load');
-    	config.animateOut && component.animate(config.animateOut);
+    	setTimeout(function(){
+    		component.addClass(className + '-leave').removeClass(className + '-load');
+    		config.animateOut && component.animate(config.animateOut);
+    	}, config.delay || 0)
         return false;
     })
 

@@ -25,14 +25,14 @@
         }
     </style>
 
-    <script type="text/javascript" src="../js/lib/jquery.js"></script>
-    <script type="text/javascript" src="../js/H5ComponentBase.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+    <script type="text/javascript" src="../scripts/lib/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/H5ComponentBase.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/H5ComponentBase.css">
 
 
     <!-- 引入雷达图的资源 -->
-    <script type="text/javascript" src="../js/H5ComponentRadar.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/H5ComponentRadar.css">
+    <script type="text/javascript" src="../scripts/H5ComponentRadar.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/H5ComponentRadar.css">
 
     <body>
         <!-- 用于开发测试 H5ComponentRadar 对象（雷达图组件） -->
@@ -41,8 +41,46 @@
         </div>
 
         <script type="text/javascript">
+           $(function(){
 
+                var config = {
+                    type: 'radar',
+                    width: 400,
+                    height: 400,
+                    data: [
+                        ['Javascript', .9, '#ff7676'],
+                        ['HTML/CSS', .9],
+                        ['CSS3', .1],
+                        ['HTML5', .9],
+                        ['jQuery', .5],
+                        // ['Bootstrap', .05],
+                        // ['AngularJS', .09]
+                    ],
+                    css: {
+                        top: 100,
+                        opacity: 0,
+                    },
+                    animateIn:{
+                        opacity: 1,
+                        top: 200
+                    },
+                    animateOut: {
+                        opacity: 0,
+                        top: 100
+                    },
+                    center: true
+                }
 
+                var h5 = new H5ComponentRadar('myName', config);
+
+                $('.iphone').append(h5);
+            })
+
+            var leave = true;
+            $('body').on('click', function(){
+                leave = !leave;
+                $('.h5-component').trigger(leave ? 'onLeave' : 'onLoad');
+            })
         </script>
 
     </body>

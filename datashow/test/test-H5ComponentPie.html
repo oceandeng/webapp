@@ -25,14 +25,14 @@
         }
     </style>
 
-    <script type="text/javascript" src="../js/lib/jquery.js"></script>
-    <script type="text/javascript" src="../js/H5ComponentBase.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+    <script type="text/javascript" src="../scripts/lib/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/H5ComponentBase.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/H5ComponentBase.css">
 
 
     <!-- 引入饼图的资源 -->
-    <script type="text/javascript" src="../js/H5ComponentPie.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/H5ComponentPie.css">
+    <script type="text/javascript" src="../scripts/H5ComponentPie.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/H5ComponentPie.css">
 
     <body>
         <!-- 用于开发测试 H5ComponentPie 对象（饼图组件） -->
@@ -41,8 +41,46 @@
         </div>
 
         <script type="text/javascript">
+          $(function(){
 
+                var config = {
+                    type: 'pie',
+                    width: 400,
+                    height: 400,
+                    data: [
+                        ['Javascript', .1, '#ff7676'],
+                        ['HTML/CSS', .3],
+                        ['CSS3', .3],
+                        ['HTML5', .2],
+                        ['jQuery', .1],
+                        // ['Bootstrap', .05],
+                        // ['AngularJS', .09]
+                    ],
+                    css: {
+                        top: 100,
+                        // opacity: 0,
+                    },
+                    // animateIn:{
+                    //     opacity: 1,
+                    //     top: 200
+                    // },
+                    // animateOut: {
+                    //     opacity: 0,
+                    //     top: 100
+                    // },
+                    center: true
+                }
 
+                var h5 = new H5ComponentPie('myName', config);
+
+                $('.iphone').append(h5);
+            })
+
+            var leave = true;
+            $('body').on('click', function(){
+                leave = !leave;
+                $('.h5-component').trigger(leave ? 'onLeave' : 'onLoad');
+            })
         </script>
 
     </body>

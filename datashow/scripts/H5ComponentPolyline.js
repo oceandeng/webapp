@@ -93,7 +93,6 @@ var H5ComponentPolyline = function(name, config){
 		ctx.lineWidth = 1;
 		ctx.strokeStyle = 'rgba(255, 136, 120, 0)';
 
-
 		// 绘制阴影
 		ctx.lineTo(x, h);
 		ctx.lineTo(rotW, h);
