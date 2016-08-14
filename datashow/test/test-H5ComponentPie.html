@@ -48,13 +48,13 @@
                     width: 400,
                     height: 400,
                     data: [
-                        ['Javascript', .1, '#ff7676'],
-                        ['HTML/CSS', .3],
-                        ['CSS3', .3],
-                        ['HTML5', .2],
-                        ['jQuery', .1],
-                        // ['Bootstrap', .05],
-                        // ['AngularJS', .09]
+                        ['Javascript', .8, '#ff7676'],
+                        ['HTML/CSS', .06],
+                        ['CSS3', .02],
+                        ['HTML5', .01],
+                        ['jQuery', .01],
+                        ['Bootstrap', .02],
+                        ['AngularJS', .08]
                     ],
                     css: {
                         top: 100,
@@ -77,7 +77,7 @@
             })
 
             var leave = true;
-            $('body').on('click', function(){
+            $('body').click(function(){
                 leave = !leave;
                 $('.h5-component').trigger(leave ? 'onLeave' : 'onLoad');
             })
