@@ -381,7 +381,6 @@
             for (var i = 0; i < event.length; i++)
             {
                 var ev = event[i];
-
                 if (ev.handler.apply(ev.context, data) == false)
                     return false;
             }
@@ -647,6 +646,8 @@
         //遮罩
         mask: function (win)
         {
+            var zindex = 9150;
+
             function setHeight()
             {
                 if (!liger.win.windowMask) return;
@@ -655,13 +656,17 @@
             }
             if (!this.windowMask)
             {
-                this.windowMask = $("<div class='l-window-mask' style='display: block;'></div>").appendTo('body');
+                this.windowMask = $("<div class='l-window-mask' style='display: block; z-index:" + zindex + ";'></div>").appendTo('body');
                 $(window).bind('resize.ligeruiwin', setHeight);
                 $(window).bind('scroll', setHeight);
             }
             this.windowMask.show();
             setHeight();
             this.masking = true;
+        },
+        // 重置遮罩
+        remask: function(win){
+            this.windowMask.css('z-index', 9150);
         },
 
         //取消遮罩
@@ -678,7 +683,10 @@
                 //是否模态窗口
                 var modal = winmanager.get('modal');
                 //如果存在其他模态窗口，那么不会取消遮罩
-                if (modal) return;
+                if (modal) {
+                    this.windowMask.css('z-index', 9000);
+                    return;
+                }
             }
             if (this.windowMask)
                 this.windowMask.hide();
@@ -826,6 +834,10 @@
         {
             if (this.options.modal)
                 liger.win.mask(this);
+        },
+        remask: function(){
+            if (this.options.modal)
+                liger.win.remask(this);
         },
         unmask: function ()
         {

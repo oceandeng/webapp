@@ -886,7 +886,7 @@
             if (p.checkbox) treeWidth += 22;
             if (p.parentIcon || p.childIcon) treeWidth += 22;
             treeWidth += p.nodeWidth;
-            
+
             g.tree.width(treeWidth);
         },
         _getChildNodeClassName: function ()
@@ -1569,6 +1569,8 @@
                 g._setParentCheckboxStatus(treeitem.parent().parent("li"));
         }
     });
+
+
 
     function strTrim(str)
     {

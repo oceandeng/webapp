@@ -51,12 +51,14 @@
         contentCls: null,
         id: null,        //给dialog附加id
         buttons: null, //按钮集合 
+        enterTxt: '',
         isDrag: true,   //是否拖动
         width: 420,     //宽度
         height: null,   //高度，默认自适应 
         content: '',    //内容
         myContent:'',   //自定义内容，为了兼容既有标题，又有内容的形式
         target: null,   //目标对象，指定它将以appendTo()的方式载入
+        wrap: null,
         url: null,      //目标页url，默认以iframe的方式载入
         urlParms: null,     //传参
         load: false,     //是否以load()的方式加载目标页的内容 
@@ -141,7 +143,6 @@
             g.dialog.content = $(".l-dialog-content", g.dialog);
            
             g.set(p, false);
-
             if (p.allowClose == false) $(".l-dialog-close", g.dialog).remove();
             if (p.target || p.url || p.type == "none")
             {
@@ -152,8 +153,12 @@
             if (p.cls) g.dialog.addClass(p.cls);
             if (p.id) g.dialog.attr("id", p.id);
 
+            if(l.win.windowMask){
+                g.remask();
+            }
             //设置锁定屏幕、拖动支持 和设置图片
             g.mask();
+
             if (p.isDrag)
                 g._applyDrag();
             if (p.isResize)
@@ -326,7 +331,7 @@
             if (tmpId != "")
             {
                 $("#" + tmpId).focus();
-                $("#" + tmpId).remove();
+                // $("#" + tmpId).remove();
             }
         },
         _borderX: 12,
@@ -515,7 +520,6 @@
             else
                 g.dialog.content.height(contentHeight);
             if (this.resizable) this.resizable.set({ disabled: false });
-
 
             g.wintoggle.removeClass("l-dialog-extend");
         },
@@ -735,6 +739,9 @@
         close: function (data)
         {
             var g = this, p = this.options;
+            if(p.wrap != null){
+                $(p.wrap).append(p.target);
+            }
             if (g.trigger('Close',data) == false) return;
             g.doClose();
             if (g.trigger('Closed',data) == false) return;
@@ -781,18 +788,18 @@
             var g = this; var p = this.options;
             if (value)
             {
-                $(".l-dialog-title",g.dialog).find("i").html(value);
+                $(".l-dialog-title",g.dialog).append(value);
             }
             //console.info(p.type);
             if (p.type)
             {             
                 if (p.type == 'error')
                 {
-                    $(".l-dialog-title",g.dialog).find(i).addClass("iconfont icon-cloud").show();
+                    $(".l-dialog-title",g.dialog).find(i).addClass("iconfont icon-jinggao").show();
                 }
                 else if (p.type == 'warn')
                 {
-                    $(".l-dialog-title",g.dialog).find("i").addClass("iconfont icon-cloud").show();
+                    $(".l-dialog-title",g.dialog).find("i").addClass("iconfont icon-jinggao").show();
                 }
                 else if (p.type == 'question')
                 {
@@ -962,21 +969,20 @@
     });
     l.controls.Dialog.prototype.hide = l.controls.Dialog.prototype.hidden;
 
-
-
     $.ligerDialog.open = function (p)
     {
         return $.ligerDialog(p);
     };
-    $.ligerDialog.close = function ()
+    $.ligerDialog.close = function (data)
     {
        
         var dialogs = l.find(l.controls.Dialog.prototype.__getType());
+
         for (var i in dialogs)
         {
-            var d = dialogs[i];          
+            var d = dialogs[i];
             d.destroy.ligerDefer(d, 5);
-            d.close();
+            d.close(data);
         }
         l.win.unmask();
     };
@@ -988,13 +994,11 @@
         {
             var d = dialogs[i];
             if(d.id==id){
-                d.destroy.ligerDefer(d, 5);               
+                d.destroy.ligerDefer(d, 5);
                 d.close(data);
                 return;
             }
         }
-
-      
     };
     $.ligerDialog.show = function (p)
     {
@@ -1069,7 +1073,7 @@
         };
         p = {
             content: content,
-            buttons: [{ text: $.ligerDefaults.DialogString.ok, onclick: btnclick ,cls: 'btn btn-guide btnMr'}]
+            buttons: [{ text: options.enterTxt || $.ligerDefaults.DialogString.ok, onclick: btnclick ,cls: 'btn btn-guide btnMr'}]
         };
         if (typeof (title) == "string" && title != "") p.title = title;
         if (typeof (type) == "string" && type != "") p.type = type;
@@ -1082,7 +1086,7 @@
     };
 
   
-     $.ligerDialog.confirm = function (tiptitle,title, width,callback,MyContent)
+     $.ligerDialog.confirm = function (tiptitle,title, width,callback,MyContent, type)
     {
         if (typeof (title) == "function")
         {
@@ -1099,7 +1103,7 @@
         };
         tiptitle="<p class='dl-title'>"+tiptitle+"</p>";
         p = {
-            type: 'warn',
+            type: type || 'warn',
             content: tiptitle,
             width:width,
             MyContent:MyContent,

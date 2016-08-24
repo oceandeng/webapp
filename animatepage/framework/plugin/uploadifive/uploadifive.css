@@ -1,0 +1,66 @@
+/*
+UploadiFive
+Copyright (c) 2012 Reactive Apps, Ronnie Garcia
+*/
+
+.uploadifive-button {
+	background-color: #505050;
+	color: #FFF;
+}
+.uploadifive-button:hover {
+	background-color: #606060;
+}
+#queue:after{content:"";display:block;height:0;clear:both;visibility:hidden}
+.uploadifive-queue-item {
+	background-color: #F4f5f9;
+	border: 1px dotted #D5D5D5;
+	margin-top: 5px;
+	margin-right: 5px;
+	padding: 10px;
+	width: 100px;
+	position: relative;
+	float: left;
+}
+.uploadifive-queue-item .close {
+	background: url('../images/uploadifive-cancel.png') no-repeat center;
+	display: block;
+	height: 16px;
+	text-indent: -9999px;
+	width: 16px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.uploadifive-queue-item .fileAttr{
+	font-size: 12px;
+	text-align: center;
+	height: 20px;
+	line-height: 20px; overflow: hidden;
+}
+.uploadifive-queue-item .progress {
+	border: 1px solid #D0D0D0;
+	height: 3px;
+	width: 100%;
+}
+.uploadifive-queue-item .progress-bar {
+	background-color: #0072BC;
+	height: 3px;
+	width: 0;
+}
+/*.uploadifive-queue-item .fileBase64{width: 100px; height: 100px; overflow: hidden; position: relative;}*/
+
+
+
+/**缩略图*/
+.uploadifive-queue-item .fileBase64{
+	width: 100px; height: 100px; overflow: hidden;
+	display:table;
+	text-align: center;
+	background: #e7e7eb;
+}
+.uploadifive-queue-item .fileBase64 span{
+	max-width:100%; max-height:100%;
+    display:table-cell;
+    vertical-align:middle;
+}
+.uploadifive-queue-item .fileBase64 img{max-width:100px; max-height:100px;}

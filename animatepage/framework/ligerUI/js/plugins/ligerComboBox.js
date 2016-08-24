@@ -31,6 +31,7 @@
         onBeforeSelect: false, //选择前事件
         onAfterShowData : null,
         onSelected: null, //选择值事件 
+        onHide: null, //隐藏回调
         initValue: null,
         value : null,
         initText: null,
@@ -78,7 +79,7 @@
         onTextBoxKeyEnter : null,
         render: null,            //文本框显示html函数
         absolute: true,         //选择框是否在附加到body,并绝对定位
-        cancelable: true,      //可取消选择
+        cancelable: false,      //可取消选择
         css: null,            //附加css
         parms: null,         //ajax提交表单 
         renderItem: null,   //选项自定义函数
@@ -1787,6 +1788,7 @@
                     if (o.selectBox.is(":visible") != null && o.selectBox.is(":visible"))
                     {
                         o.selectBox.hide();
+                        g.trigger('hide');
                     }
                 }
             }
@@ -1799,6 +1801,7 @@
                     if (o.dateeditor.is(":visible") != null && o.dateeditor.is(":visible"))
                     {
                         o.dateeditor.hide();
+                        g.trigger('hide');
                     }
                 }
             }
@@ -1816,6 +1819,7 @@
                 else
                 {
                     g.selectBox.hide();
+                    g.trigger('hide');
                     g.boxToggling = false;
                 }
             }
@@ -1978,7 +1982,6 @@
                 else
                 { 
                     combobox._changeValue(curGridSelected[combobox_op.valueField], curGridSelected[combobox_op.textField], true);
-
                     combobox.selectBox.hide();
                     combobox.trigger('textBoxKeyEnter', [{
                         rowdata: curGridSelected

@@ -145,8 +145,18 @@
             if (!g.current) return;
             var pageX = e.pageX || e.screenX;
             var pageY = e.pageY || e.screenY;
-            g.current.diffX = pageX - g.current.startX;
-            g.current.diffY = pageY - g.current.startY;
+
+            var offL = g.current.startX - g.current.target[0].offsetLeft;
+            var offT = g.current.startY - g.current.target[0].offsetTop;
+            var gW = g.current.target.width();
+            var gH = g.current.target.height();
+
+            if((pageX - offL) >= 0 && (document.body.clientWidth - (gW + pageX - offL)) >= 0){
+                g.current.diffX = pageX - g.current.startX;
+            }
+            if((pageY - offT) >= 0 && (document.body.clientHeight - (gH + pageY - offT)) >= 0){
+                g.current.diffY = pageY - g.current.startY;
+            }
             (g.proxy || g.handler).css('cursor', g.cursor);
             if (g.receive)
             {
@@ -154,6 +164,7 @@
                 {
                     var receive = $(obj);
                     var xy = receive.offset();
+
                     if (pageX > xy.left && pageX < xy.left + receive.width()
                     && pageY > xy.top && pageY < xy.top + receive.height())
                     {
