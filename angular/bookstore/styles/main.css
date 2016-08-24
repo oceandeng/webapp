@@ -1,0 +1,11 @@
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+    cursor: pointer;
+}
+
+.grid-style {
+    border: 1px solid rgb(212, 212, 212);
+    height: 300px;
+}

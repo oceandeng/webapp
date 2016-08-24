@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+    <meta name="full-screen" content="yes">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>卡车追妹子</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <style>
+    .webapp-loading{z-index: 99999; width:100%; height:100%; background: #fff; position: absolute;}
+    .newloading-ptxt { text-align:center; font-size:14px;}
+
+    .spinner {
+      margin: 40% auto 20px auto;
+      width: 50px;
+      height: 60px;
+      text-align: center;
+      font-size: 10px;
+    }
+     
+    .spinner > div {
+      background-color: #666;
+      height: 100%;
+      width: 6px;
+      display: inline-block;
+       
+      -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+      animation: stretchdelay 1.2s infinite ease-in-out;
+    }
+     
+    .spinner .rect2 {
+      -webkit-animation-delay: -1.1s;
+      animation-delay: -1.1s;
+    }
+     
+    .spinner .rect3 {
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s;
+    }
+     
+    .spinner .rect4 {
+      -webkit-animation-delay: -0.9s;
+      animation-delay: -0.9s;
+    }
+     
+    .spinner .rect5 {
+      -webkit-animation-delay: -0.8s;
+      animation-delay: -0.8s;
+    }
+     
+    @-webkit-keyframes stretchdelay {
+      0%, 40%, 100% { -webkit-transform: scaleY(0.4) } 
+      20% { -webkit-transform: scaleY(1.0) }
+    }
+     
+    @keyframes stretchdelay {
+      0%, 40%, 100% {
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4);
+      }  20% {
+        transform: scaleY(1.0);
+        -webkit-transform: scaleY(1.0);
+      }
+    }
+    </style>
+    <!-- build:css(.tmp) styles/game.css -->
+    <link rel="stylesheet" href="styles/game.css">
+    <!-- endbuild -->
+<script>
+  var gConfig = {
+    localPath : "",
+    i: 1,
+    // path: "__PUBLIC__/",
+    path: window.location.origin + '/',
+    sApi: "",     // 游戏 ajax 请求地址
+    gameScore: 122,
+    openId : ""
+  }
+</script>
+</head>
+<body>
+    <div class="webapp-loading">
+        <figure class="newloading-logo">
+            <figcaption class="newringlogo-box">
+                <div class="spinner">
+                  <div class="rect1"></div>
+                  <div class="rect2"></div>
+                  <div class="rect3"></div>
+                  <div class="rect4"></div>
+                  <div class="rect5"></div>
+                </div>
+                <div class="newloading-ptxt">100%</div>
+            </figcaption>
+        </figure>
+    </div>
+    <div id="main">
+        <div id="guidePanel"></div>
+        <div id="gamePanel">
+            <div class="count-down">
+                <span id="time"></span>
+            </div>
+            <div class="score-wrap">
+                <div class="heart"></div>
+                <span id="score">00002</span>
+            </div>
+            <canvas id="stage" class="playing">
+                <span>Browser does not support the canvas.</span>
+            </canvas>
+        </div>
+        <div id="gameoverPanel"></div>
+        <div id="timeoutPanel"></div>
+        <div id="resultPanel">
+            <div id="scoreBoard" class="panel">
+                <p class="tips">恭喜您，本次获得<span>0</span>个徽章</p>
+                <div class="enter" id="enter" data-href="index.html">朕知道了</div>
+            </div>
+        </div>
+        <div id="replay">
+            <div class="replay-box">
+                <div class="tips">网络有问题~请检查您的网络~</div>
+                <div class="replay">再来一次~</div>
+    
+            </div>
+        </div>
+    </div>
+
+<!-- build:js scripts/loading.min.js -->
+<script src='scripts/loading.js'></script>
+<!-- endbuild -->
+<script>
+
+    var loader = ImageLoader.getImageLoader("progress");
+
+    loader.add(gConfig.path + 'images/road.png');
+    loader.add(gConfig.path + 'images/start.png');
+    loader.add(gConfig.path + 'images/car-one.png');
+    loader.add(gConfig.path + 'images/car-two.png');
+    loader.add(gConfig.path + 'images/lady-boy.png');
+    loader.add(gConfig.path + 'images/lost.png');
+    loader.add(gConfig.path + 'images/heart.png');
+    loader.add(gConfig.path + 'images/head-bg.png');
+    loader.add(gConfig.path + 'images/score-bg.png');
+    loader.add(gConfig.path + 'images/time.png');
+    loader.add(gConfig.path + 'images/timeout.png');
+
+    loader.load();
+</script>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/zepto/zepto.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:js scripts/game.min.js -->
+<script src="scripts/otools.js"></script>
+<script src="scripts/Game.js"></script>
+<script src="scripts/resource.js"></script>
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+
+<script>
+
+// loading
+    function showLoading(){
+        $('<canvas id="canvas"></canvas>').appendTo('body');
+        $('#canvas').css({
+            'border-radius':'5px',
+            'background':'rgba(0,0,0,0.8)',
+            'z-index': 99999,
+            'position': 'fixed',
+            'top': '20%',
+            'left': '50%',
+            'margin-left': -40
+        });
+        oTools.loading({
+            "id": "canvas",
+            "width": 5,
+            "height": 20
+        });
+    }
+    showLoading();
+    $('#canvas').hide();
+
+    function ajaxBFn(){
+        $('#canvas').show();
+    }
+
+    function ajaxSFn(res){
+        $('#canvas').hide();
+    }
+
+    function ajaxEFn(){
+        $('#canvas').hide();
+    }
+
+    function ajaxCFn(){
+        $('#canvas').hide();
+    }
+</script>
+
+</body>
+</html>

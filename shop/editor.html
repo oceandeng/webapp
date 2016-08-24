@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="stylesheet" type="text/css" href="/lib/awe/awesome.css" />
+<link rel="stylesheet" type="text/css" href="style/admin.css?1468292502" />
+<script type="text/javascript" src="script/tangram-min.js"></script>
+<script type="text/javascript" src="script/tangram-ext.js"></script>
+
+<script type="text/javascript">
+    T(document).keydown(function(evt) {
+        switch (evt.keyCode) {
+            case 8:
+                /*var node = evt.target;
+                var reg = /^(input|textarea)$/i, regType = /^(text|textarea|password)$/i;
+                if (!reg.test(node.nodeName) || !regType.test(node.type) || node.readOnly || node.disabled) {
+                    evt.preventDefault();
+                    evt.stopPropagation();
+                } break;*/
+            case 27:
+                break;
+        }
+    });
+</script>
+</head>
+<body style="overflow-x:hidden;">
+
+<link type="text/css" rel="stylesheet" href="ueditor/themes/default/css/umeditor.min.css">
+<script type="text/javascript" src="script/jquery.min.js"></script>
+<script type="text/javascript" src="ueditor/umeditor.config.js"></script>
+<script type="text/javascript" src="ueditor/umeditor.min.js"></script>
+<div class="mr15">
+    <form name="form1" id="form1" method="post" action="desctpl.html?do=save" onsubmit="return submit_post(this);">
+        <input type="hidden" id="did" name="did" value="0" />
+        <div class="navtxt r2t">
+            <div class="fl txt"><i class="fa fa-newspaper-o"></i>详细模板</div>
+            <div class="fr"><a href="/MallM/prd/desctpl.html" class="btn btn-secondary fa fa-rotate-left"> 返回</a></div>
+        </div>
+        <div class="showtxt">
+            <ul class="form1">
+                <li class="row">
+                    <span>主题</span>
+                    <input type="text" id="subject" name="subject" class="input" value="" style="width:350px;" vformat="required"/>
+                </li>
+                <li class="row">
+                    <span>位置</span>
+                    <input type="radio" name="pos" value="1" checked="checked" /><label>上部</label>
+                    <input type="radio" name="pos" value="2"  /><label>下部</label>
+                </li>
+                <li class="row" style="display:none;">
+                    <span>PC端内容</span>
+                    <script id="pccnt" name="pccnt" style="width:824px; height:400px;"></script>
+                </li>
+                <li class="row">
+                    <span>内容</span>
+                    <script id="mbcnt" name="mbcnt" style="width:824px; height:400px;"></script>
+                </li>
+                <li class="row">
+                    <input type="checkbox" id="savenew" name="savenew"  />
+                    <label for="savenew">保存后继续添加</label>
+                </li>
+                <li class="row">
+                    <button type="submit" class="btn btn-big btn-red fa fa-save"> 保存</button> &nbsp;
+                    <a href="/MallM/prd/desctpl.html" class="btn btn-big btn-default fa fa-rotate-left"> 返回</a>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="script/md5.js"></script>
+
+<script type="text/javascript">
+
+    //初始化UM富文本编辑器
+    UM.getEditor('pccnt');
+    //初始化UM富文本编辑器
+    UM.getEditor('mbcnt');
+
+    var validator = T('form').FormValidtor();
+
+    function submit_post(f){
+        if (!validator.Check()) { return false;}
+        T(f).SubmitForm({
+            complete: function(arg, html){
+                if(/^ok\-\d+$/.test(html)){
+                    if(f.savenew.checked){
+                        window.location.href = 'desctpl.html?do=add';
+                    }else {
+                        f.did.value = html.substr(3);
+                        T('.showtxt').msg().success('保存成功');
+                    }
+                }else{
+                    T('.showtxt').msg().alert(html);
+                }
+            }
+        });
+        return false;
+    }
+
+</script>
+ <div class="clr"></div>
+</body>
+</html>

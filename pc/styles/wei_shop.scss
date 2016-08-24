@@ -1,0 +1,277 @@
+@import "variable", "mixin", "response";
+
+html{
+	background: #edf0f5;
+}
+body{
+	font-family: "Microsoft Yahei";
+	font-size: 14px;
+}
+a{
+	text-decoration: none;
+}
+.green{
+	color: $green !important;
+}
+.yellow{
+	color: $yellow !important;
+}
+.red{
+	color: $red !important;
+}
+.mt20{
+	margin-top: 20px !important;
+}
+.mt30{
+	margin-top: 30px !important;
+}
+.ml10{
+	margin-left: 10px !important;
+}
+.container{
+	padding: 20px;
+
+	.main-tit{
+		color: $gaaa;
+		font-size: 12px;
+	}
+	hr{
+		background: #ddd;
+		height: 1px;
+		border: none;
+	}
+	.main-content{
+		@include clearfix();
+		width: 1240px;
+		margin: 0 auto;
+		padding-top: 20px;
+
+		.con-box{
+			width: 360;
+			height: 661px;
+			margin: 0 10px 0 0;
+			float: left;
+			background: #fff;
+			.top-banner{
+				@include clearfix();
+				img{
+					float: left;
+				}
+			}
+			.o-btn-box{
+				margin: 15px 10px 10px 10px;
+				@include clearfix();
+
+				.man-btn, .add-btn{
+					display: block;
+					width: 96px;
+					margin: 0 10px 0 0;
+					@include line-height(34px);
+					border: 1px solid #ddd;
+					border-radius: 3px;
+					float: left;
+					cursor: pointer;
+				}
+				.improt-btn{
+					width: 120px;
+					float: left;
+					@include line-height(34px);
+					border: 1px solid #347ed9;
+					background: #398aec;
+					color: #fff;
+					border-radius: 3px;
+					cursor: pointer;
+					@include clearfix();
+
+					i{
+						display: block;
+						width: 18px;
+						height: 14px;
+						margin: 9px 0 0 7px;
+						float: left;
+						background: url(../images/weishop/impor_icon.png) no-repeat;
+					}
+				}
+			}
+			.o-info{
+				margin: 20px;
+				border-top: 1px solid $b-color;
+				.o-line{
+					padding: 10px;
+					border-bottom: 1px solid $b-color;
+					.num-box{
+						margin: 20px 0 0 0;
+						p{
+							margin: 0 0 8px 0;
+							text-align: center;
+						}
+						.num{
+							font-size: 20px;
+							color: $g333;							
+						}
+					}
+					.num-info{
+						color: $g777;
+					}
+				}
+			}
+			.thr-tit{
+				margin: 10px 0 0 0;
+				padding: 0 10px;
+				color: $gaaa;
+				font-size: 12px;
+			}
+			.ac-btn{
+				ul{
+					width: 360px;
+					margin: 0;
+					padding: 0;
+					list-style-type: none;
+					@include clearfix();
+					text-align: center;
+
+					li{
+						width: 89px;
+						height: 129px;
+						float: left;
+						border-right: 1px solid $b-color;
+						border-bottom: 1px solid $b-color;
+
+						&:nth-child(4n){
+							border-right: none;
+						}
+						.icon-box{
+							width:40px;
+							height: 40px;
+							margin: 40px auto 0 auto;
+						}
+						
+						p{
+							margin: 0;
+							color: $g333;
+						}
+					}
+				}
+			}
+		}
+		.mobile-box{
+			width: 339px;
+			float: left;
+			margin: 0 10px 0 0;
+			.m-top, .m-btm{
+				@include clearfix();
+				img{
+					float: left;
+				}
+			}
+			.m-box{
+				background: url(../images/weishop/m_min_bg.jpg) repeat-y;
+			}
+			.m-con{
+				width: 320px;
+				height: 530px;
+				background: #fff;
+				margin: 0 auto;
+
+			}
+		}
+		.r-bar{
+			width: 150px;
+			float: left;
+
+			.r-top{
+				width: 150px;
+				height: 100px;
+				background: #1dc7b9;
+				text-align: center;
+				img{
+					margin: 15px 0 0 0;
+
+				}
+			}
+			.r-nav{
+				width:148px;
+				border-left: 1px solid $b-color;
+				border-right: 1px solid $b-color;
+				border-bottom: 1px solid $b-color;
+				border-radius: 0 0 3px 3px;
+				background: #fff;
+
+				ul{
+					margin: 0;
+					padding: 0;
+					list-style-type: none;
+					li{
+						@include line-height();
+						@include clearfix();
+						border-bottom: 1px solid $b-color;
+						text-align: left;
+						&:last-child{
+							border-bottom: none;
+						}
+						a{
+							color: $g777;
+						}
+						.r-one, .r-two, .r-thr{
+							width: 20px;
+							height: 20px;
+							display: block;
+							float: left;
+							margin: 15px 15px 0 25px;
+						}
+						.r-one{
+							background: url(../images/weishop/r-icon-one.png) no-repeat;
+						}
+						.r-two{
+							background: url(../images/weishop/r-icon-two.png) no-repeat;
+						}
+						.r-thr{
+							background: url(../images/weishop/r-icon-thr.png) no-repeat;
+						}
+					}
+				}
+			}
+			.r-QR{
+				margin: 20px 0 0 0;
+
+				.r-QR-box{
+					padding: 10px;
+					background: #fff;
+					border: 1px solid $b-color;
+					img{
+						max-width: 100%;
+					}
+				}
+				ul{
+					list-style-type: none;
+					@include clearfix();
+					border-left: 1px solid $b-color;
+					border-right: 1px solid $b-color;
+					border-bottom: 1px solid $b-color;
+					background: #fff;
+					margin: 0;
+					padding: 0;
+
+					li{
+						width: 48px;
+						height: 38px;
+						float: left;
+						border-right: 1px solid $b-color;
+						text-align: center;
+						img{
+							margin: 5px 0 0 0;
+						}
+						&:last-child{
+							border: none;
+						}
+					}
+				}
+			}
+
+		}
+
+	}
+
+
+
+}

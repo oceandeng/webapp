@@ -1,0 +1,240 @@
+@import "variable", "mixin", "response";
+body{
+	font-family: "Microsoft Yahei";
+	font-size: 14px;
+}
+a{text-decoration: none; &:hover{text-decoration:none}}
+.green{color: $green !important;}
+.yellow{color: $yellow !important;}
+.red{color: $red !important;}
+.mt20{margin-top: 20px !important;}
+.mt30{margin-top: 30px !important;}
+.ml10{margin-left: 10px !important;}
+.container{
+	padding: 20px;
+
+	.main-tit{
+		color: $gaaa;
+		font-size: 12px;
+	}
+	hr{
+		background: $sb-color;
+		height: 1px;
+		border: none;
+	}
+
+	.main-content{
+		@include clearfix();
+		width: 1080px;
+		margin: 0 auto;
+		padding-top: 20px;
+
+		.con-box{
+			width: 338px;
+			height: 718px;
+			margin: 0 30px 0 0;
+			padding: 0 0 10px 0;
+			border: 1px solid $sb-color;
+			float: left;
+			background: #fff;
+
+			&:last-child{
+				margin: 0;
+			}
+
+			.c-tit{
+				@include b-linear();
+				padding: 0 0 0 20px;
+				margin: 0;
+				text-align: left !important;
+				@include line-height(36px);
+				color: $g777;
+				font-size: 12px;
+			}
+			.banner{
+				@include clearfix();
+
+				img{
+					float: left;
+				}
+			}
+			.thr-tit{
+				margin: 10px 0 0 0;
+				padding: 0 10px;
+				color: $gaaa;
+				font-size: 12px;
+			}
+			.style-one{
+				padding: 0 10px;
+			}
+			.style-two{
+				margin: 10px;
+				padding: 15px 0;
+				border: 1px solid $sb-color;
+				border-radius: 3px;
+			}
+			.style-thr{
+				margin: 10px;
+				border: 1px solid $sb-color;
+				border-radius: 3px;
+				@include line-height(60px);
+			}
+			.style-fou{
+				padding: 10px;
+				@include clearfix();
+			}
+			.all-node{
+				display: block;
+				float: left;
+				width:92px;
+				margin: 0 4px 0 0;
+			}
+			.add-node{
+				display: block;
+				width: 110px;
+				float: left;
+				margin: 0 4px 0 0;
+				background: #f3a419;
+			}
+			.man-node{
+				display: block;
+				width: 106px;
+				float: left;
+				background: #49c168;
+			}
+			.shop-icon{
+				width: 60px;
+				height: 60px;
+				text-align: center;
+				float: left;
+				background: $g777;
+				border-radius: 3px 0 0 3px;
+				img{
+					margin: 12px 0 0 0;
+				}
+			}
+			.shop-txt{
+				float: left;
+				margin: 0 0 0 20px;
+				width: 220px;
+				text-align: left;
+				color: $g777;
+				background: url(../images/store/arrow-r-icon.png) no-repeat right center;
+			}
+			.s-two-b{
+				text-align: center;
+				
+				div{
+					width: 36px;
+					height: 36px;
+					margin: 0 auto;
+				}
+				p{
+					text-align: center;
+					margin: 5px 0 0 0;
+					text-align: center;
+					color: $g777;
+				}
+			}
+			.num-box{
+				p{
+					margin: 0 0 8px 0;
+					text-align: center;
+				}
+				.num{
+					font-size: 20px;
+					font-weight: bold;
+				}
+			}
+			.num-info{
+				color: $g777;
+			}
+			.href{
+				color: #3c6eb4;
+				margin: 5px 10px;
+			}
+			.rule-list{
+				padding: 0 10px 10px 10px;
+				list-style-type: none;
+				@include clearfix();
+
+				li{
+					width: 154px;
+					height: 120px;
+					float: left;
+					margin: 0 0 10px 0;
+					border-radius: 3px;
+					text-align: center;
+					cursor: pointer;
+					a{
+						display: block;
+						@include line-height(36px);
+						border-bottom-width: 1px;
+						border-bottom-style: solid;
+						border-bottom-color: rgba(0, 0, 0, .1);
+						color: #fff;
+						font-size: 12px;
+					}
+					img{
+						margin: 18px 0 0 0;
+					}
+				}
+				.one{
+					background: #f67f81;
+					margin: 0 10px 0 0;
+				}
+				.two{
+					background: #f4b67d;
+				}
+				.thr{
+					background: #77c6e4;
+					margin: 0 10px 0 0;
+				}
+				.fou{
+					background: #6dda89;
+				}
+			}
+		}
+		
+
+	}
+	.normal-btn{
+		display: block;
+		background: $blue;
+		text-align: center;
+		@include line-height(38px);
+		color: #fff;
+		border-radius: 3px;
+		text-decoration: none;
+	}
+	.write-icon-btn{
+		display: block;
+		text-align: center;
+		@include line-height(36px);
+		color: #fff;
+		border: 1px solid $sb-color;
+		border-radius: 3px;
+		text-decoration: none;
+		@include clearfix();
+		.w-txt{
+			width: 92px;
+			color: $g777;
+			text-align: center;
+			float: left;
+		}
+		.w-icon{
+			float: right;
+			width: 36px;
+			height: 36px;
+			text-align: center;
+			border-left: 1px solid $sb-color;
+
+			img{
+				margin: 6px 0 0 0;	
+			}
+			
+		}
+	}
+
+
+}

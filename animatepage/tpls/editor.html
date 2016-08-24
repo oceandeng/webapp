@@ -1,0 +1,11 @@
+<h3>{{title}}</h3>
+<div style="width: 100%">
+    <script id="myEditor" type="text/plain" style="width:375px;height:500px;"></script>
+</div>
+
+<div id="preview" style="width: 320px; height: 480px; border: 1px solid #ccc; position: absolute; top: 50px; right: 0"></div>
+
+<input ng-model="user.name" type="text" ng-change="change()">
+<button id="btn">按钮</button>
+
+<div>{{user.name | titleCase}}</div>

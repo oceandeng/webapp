@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>活动及兑换都已结束</title>
+<style>
+.webapp-loading{z-index: 999; width:100%; height:100%; background: #fff; position: absolute;}
+.newloading-ptxt { text-align:center; font-size:14px;}
+
+.spinner {
+  margin: 40% auto 20px auto;
+  width: 50px;
+  height: 60px;
+  text-align: center;
+  font-size: 10px;
+}
+ 
+.spinner > div {
+  background-color: #666;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+   
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+ 
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+ 
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+ 
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+ 
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+ 
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) } 
+  20% { -webkit-transform: scaleY(1.0) }
+}
+ 
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+</style>
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+<style>
+	#wrapper{
+		background: #131313;
+	}
+	.score-con{
+		background: url(images/body-bg-other.jpg) no-repeat;
+		background-size: 100% auto;
+	}
+</style>
+<script>
+  var gConfig = {
+    // path: "__PUBLIC__/",
+    path: window.location.origin + '/',
+    sApi: "",     // 游戏 ajax 请求地址
+    gameScore: 122,
+    openId : ""
+  }
+</script>
+</head>
+<body>
+<div class="webapp-loading">
+	<figure class="newloading-logo">
+		<figcaption class="newringlogo-box">
+			<div class="spinner">
+			  <div class="rect1"></div>
+			  <div class="rect2"></div>
+			  <div class="rect3"></div>
+			  <div class="rect4"></div>
+			  <div class="rect5"></div>
+			</div>
+			<div class="newloading-ptxt">100%</div>
+		</figcaption>
+	</figure>
+</div>
+<article id="wrapper">
+	<section id="scroller">
+		<section class="score-con">
+			<div class="success-con done-con">
+				<div class="suc-top">
+					<img src="images/success-top.png" alt="">
+				</div>
+				<div class="suc-con">
+					<h2>您已经领过奖品啦</h2>
+					<h4>把好消息告诉更多好友</h4>
+					<div id="shareBtn" class="share-btn share-dark">
+						分享到朋友圈
+					</div>
+					<div id="download" class="suc-button suc-dark">
+						马上使用
+					</div>
+				</div>
+				<div class="suc-btm">
+					<img src="images/success-btm.png" alt="">
+				</div>
+			</div>
+		</section>
+	</section>
+</article>
+
+<!-- build:js scripts/loading.min.js -->
+<script src='scripts/loading.js'></script>
+<!-- endbuild -->
+<script>
+	var loader = ImageLoader.getImageLoader("progress");
+
+	loader.add(gConfig.path + 'images/how-btn.png');
+	loader.add(gConfig.path + 'images/head-bg.png');
+	loader.add(gConfig.path + 'images/rule-btn.png');
+	loader.add(gConfig.path + 'images/score-con-bg.jpg');
+	loader.add(gConfig.path + 'images/test-header.jpg');
+
+	loader.load();	
+</script>
+
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/zepto/zepto.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/otools.min.js -->
+<script src="scripts/event.js"></script>
+<script src="scripts/touch.js"></script>
+<script src="scripts/otools.js"></script>
+<script src="scripts/progressbar.js"></script>
+<script src="scripts/dialog.js"></script>
+<script src="scripts/iscroll-probe.js"></script>
+<script src="scripts/popup.zepto.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/end.min.js -->
+<script src="scripts/end.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/download.min.js -->
+<script src="scripts/download.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

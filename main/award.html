@@ -1,0 +1,454 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="full-screen" content="yes">
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+<meta content="no-cache" http-equiv="pragma">
+<meta content="0" http-equiv="expires">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>卡车追妹子</title>
+<style>
+.webapp-loading{z-index: 999; width:100%; height:100%; background: #fff; position: absolute;}
+.newloading-ptxt { text-align:center; font-size:14px;}
+
+.spinner {
+  margin: 40% auto 20px auto;
+  width: 50px;
+  height: 60px;
+  text-align: center;
+  font-size: 10px;
+}
+ 
+.spinner > div {
+  background-color: #666;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+   
+  -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+ 
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+ 
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+ 
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+ 
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+ 
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) } 
+  20% { -webkit-transform: scaleY(1.0) }
+}
+ 
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+</style>
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
+
+<script>
+  var gConfig = {
+    // path: "__PUBLIC__/",
+    path: window.location.origin + '/',
+    sApi: "",     // 游戏 ajax 请求地址
+    gameScore: 122,
+    openId : ""
+  }
+</script>
+</head>
+<body>
+<div class="webapp-loading">
+	<figure class="newloading-logo">
+		<figcaption class="newringlogo-box">
+			<div class="spinner">
+			  <div class="rect1"></div>
+			  <div class="rect2"></div>
+			  <div class="rect3"></div>
+			  <div class="rect4"></div>
+			  <div class="rect5"></div>
+			</div>
+			<div class="newloading-ptxt">100%</div>
+		</figcaption>
+	</figure>
+</div>
+<article id="wrapper">
+	<section id="scroller">
+		<header>
+		    <span id="how-btn" class="top-btn"><img src="images/how-btn.png"></span>
+		    <span id="rule-btn" class="top-btn"><img src="images/rule-btn.png"></span>
+		</header>
+		<section class="score-con">
+			<div class="head-photo">
+				<img src="images/head-photo.jpg" alt="">
+			</div>
+		    <h1>我的排名<span>10</span></h1>
+		    <!-- <p class="mm-count">已追到 <span id="scoreNum">0</span> 个妹子</p> -->
+			<p id="ranking">点击查看排行榜＞</p>
+		    <div id="score" class="prizebar-box">
+    			<canvas id="prizebar" height="60px">
+			        Your browser does not have support for canvas.
+			    </canvas>		    	
+		    </div>
+			<div id="awardBtn" class="awardBtn button">
+				领取奖励
+			</div>
+			<p class="tips">同一微信号只能领取一次奖励喔</p>
+			<div id="download" class="button">
+				立即下载车旺app
+			</div>
+			<p class="tips">加油用车旺省钱省到家</p>
+
+		</section>
+		<section id="container" class="container">
+			<h2>好友助力记录</h2>
+			<!-- >> 有记录 -->
+			<!-- <dl id="friendDl">
+				<dt class="friend-head"><img src="images/test-header.jpg" alt=""></dt>
+				<dd class="friend-info">
+					<h3>王千万</h3>
+					<p>帮您获得<span>55</span>个徽章</p>
+				</dd>
+				<dd class="friend-date">2015-01-08</dd>
+				<dt class="friend-head"><img src="images/test-header.jpg" alt=""></dt>
+				<dd class="friend-info">
+					<h3>哈萨德</h3>
+					<p>帮您获得<span>55</span>个徽章</p>
+				</dd>
+				<dd class="friend-date">2015-01-08</dd>
+			</dl>
+			<div id="loadmore" class="loadmore">更多好友助力记录</div> -->
+			<!-- >> 有记录 -->
+
+			<!-- >> 无记录 -->
+			<div class="none-friend">
+				<img src="images/none-icon.jpg" alt="">
+				<div class="work">
+					<p>您还没有好友助力</p>
+					<p>千元油券近在咫尺</p>
+				</div>
+			</div>
+			<!-- >> 无记录 -->
+
+		</section>
+
+	</section>
+</article>
+
+<!-- 活动规则 -->
+<section class="rulebox">
+	<div id="rulebox">
+		<div id="scrollerone">
+		  <div class="rulecon">
+		    <h2>活动规则</h2>
+		    <p>1、2015年X月X日-X月X日，为活动时间，在活动时间内，可以通过玩开卡车追妹子的游戏，记录追到妹子的数量，不同数量的妹子可以兑换价值不等的加油券</p>
+		    <p>2、兑换说明<br>
+				<ul>
+					<li>30-299个妹子，兑换1元加油券，充值20可用</li>
+					<li>300-1799个妹子，兑换10元加油券，充值199可用</li>
+					<li>1800-2999个妹子，兑换60元加油券，充值599可用</li>
+					<li>3000-9999个妹子，兑换100元加油券，充值666可用</li>
+					<li>10000及以上个妹子，兑换1000元加油券，充值6666可用</li>
+				</ul>
+			</p>
+		    <p>3、每个微信号，活动期间可以为自己玩3次游戏，为自己积累追妹子的数量。</p>
+		    <p>4、每个微信号，活动期间可以为多个人助力，但只能助力他人一次，为他人助力的游戏成绩，积累到那个人的追妹子总数中。</p>
+		    <p>5、每个微信号，只能兑奖一次，不能重复领取，领取的加油券，存入兑奖时输入的手机号的车旺账户中</p>
+		    <p>6、兑奖日期：2015年X月X日-X月X日</p>
+		  </div>
+		</div>
+	</div>
+</section>
+<!-- 活动规则 -->
+
+<!-- 如何兑换 -->
+<section class="howbox">
+	<div id="howbox">
+		<div id="scrollertwo">
+		  <div class="howcon">
+		    <h2>如何兑换</h2>
+		    <p>1、活动期间，每个手机号仅限领一张100元加油券；</p>
+		    <p>2、加油券为充值抵用券，在车旺加油卡充值满1000元可用，充值减加油券部分还可享受相应返利，举例说明：比如您需充值1000元，使用100元加油券后，则实付900元即可，900元还可享受相应返利；</p>
+		    <p>3、用户须在领到加油券7日内激活，过期无效；券激活后须在15日内使用，过期无效；</p>
+		    <p>4、加油券不支持提现、返利，使用本活动优惠券订单一经完成，相应充值金额及加油券不予退还；</p>
+		    <p>5、活动截止到2015年12月31日，本活动最终解释权归车旺所有。</p>
+		  </div>
+		</div>
+	</div>
+</section>
+<!-- 如何兑换 -->
+
+<!-- 排行榜 -->
+<section class="rankingbox">
+	<div id="rankingbox">
+		<div id="scrollerthr">
+			<div class="rankingcon">
+				<h2>排行榜</h2>
+				<dl id="rankDl">
+					<dt class="rank-num">1</dt>
+					<dd class="rank-info">
+						<div class="rank-head">
+							<img src="images/test-header.jpg" alt="">
+						</div>
+						<div class="rank-name">
+							<p>王千万</p>
+						</div>
+					</dd>
+					<dd class="total-score">获得<span>5555</span>个徽章</dd>
+					<dt class="rank-num">1</dt>
+					<dd class="rank-info">
+						<div class="rank-head">
+							<img src="images/test-header.jpg" alt="">
+						</div>
+						<div class="rank-name">
+							<p>哈萨德</p>
+						</div>
+					</dd>
+					<dd class="total-score">获得<span>5555</span>个徽章</dd>
+					<dt class="rank-num">1</dt>
+					<dd class="rank-info">
+						<div class="rank-head">
+							<img src="images/test-header.jpg" alt="">
+						</div>
+						<div class="rank-name">
+							<p>王千万</p>
+						</div>
+					</dd>
+					<dd class="total-score">获得<span>5555</span>个徽章</dd>
+					<dt class="rank-num">1</dt>
+					<dd class="rank-info">
+						<div class="rank-head">
+							<img src="images/test-header.jpg" alt="">
+						</div>
+						<div class="rank-name">
+							<p>哈萨德</p>
+						</div>
+					</dd>
+					<dd class="total-score">获得<span>5555</span>个徽章</dd>
+					<dt class="rank-num">1</dt>
+					<dd class="rank-info">
+						<div class="rank-head">
+							<img src="images/test-header.jpg" alt="">
+						</div>
+						<div class="rank-name">
+							<p>哈萨德</p>
+						</div>
+					</dd>
+					<dd class="total-score">获得<span>5555</span>个徽章</dd>
+					<dt class="rank-num">1</dt>
+					<dd class="rank-info">
+						<div class="rank-head">
+							<img src="images/test-header.jpg" alt="">
+						</div>
+						<div class="rank-name">
+							<p>哈萨德</p>
+						</div>
+					</dd>
+					<dd class="total-score">获得<span>5555</span>个徽章</dd>
+					<dt class="rank-num">1</dt>
+					<dd class="rank-info">
+						<div class="rank-head">
+							<img src="images/test-header.jpg" alt="">
+						</div>
+						<div class="rank-name">
+							<p>哈萨德</p>
+						</div>
+					</dd>
+					<dd class="total-score">获得<span>5555</span>个徽章</dd>
+					<dt class="rank-num">1</dt>
+					<dd class="rank-info">
+						<div class="rank-head">
+							<img src="images/test-header.jpg" alt="">
+						</div>
+						<div class="rank-name">
+							<p>哈萨德</p>
+						</div>
+					</dd>
+					<dd class="total-score">获得<span>5555</span>个徽章</dd>
+					<dt class="rank-num">1</dt>
+					<dd class="rank-info">
+						<div class="rank-head">
+							<img src="images/test-header.jpg" alt="">
+						</div>
+						<div class="rank-name">
+							<p>哈萨德</p>
+						</div>
+					</dd>
+					<dd class="total-score">获得<span>5555</span>个徽章</dd>
+					<dt class="rank-num">1</dt>
+					<dd class="rank-info">
+						<div class="rank-head">
+							<img src="images/test-header.jpg" alt="">
+						</div>
+						<div class="rank-name">
+							<p>哈萨德</p>
+						</div>
+					</dd>
+					<dd class="total-score">获得<span>5555</span>个徽章</dd>
+					<dt class="rank-num">1</dt>
+					<dd class="rank-info">
+						<div class="rank-head">
+							<img src="images/test-header.jpg" alt="">
+						</div>
+						<div class="rank-name">
+							<p>哈萨德</p>
+						</div>
+					</dd>
+					<dd class="total-score">获得<span>5555</span>个徽章</dd>
+					
+				</dl>	   
+			</div>
+			<div id="pullUp">
+				<div class="pullUpLabel">上拉显示更多...</div>  
+			</div>  
+		</div>
+	</div>
+</section>
+<!-- 排行榜 -->
+
+<!-- build:js scripts/loading.min.js -->
+<script src='scripts/loading.js'></script>
+<!-- endbuild -->
+<script>
+	var loader = ImageLoader.getImageLoader("progress");
+
+	loader.add(gConfig.path + 'images/how-btn.png');
+	loader.add(gConfig.path + 'images/head-bg.png');
+	loader.add(gConfig.path + 'images/rule-btn.png');
+	loader.add(gConfig.path + 'images/score-con-bg.jpg');
+	loader.add(gConfig.path + 'images/test-header.jpg');
+
+	loader.load();	
+</script>
+
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/zepto/zepto.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/otools.min.js -->
+<script src="scripts/event.js"></script>
+<script src="scripts/touch.js"></script>
+<script src="scripts/otools.js"></script>
+<script src="scripts/progressbar.js"></script>
+<script src="scripts/dialog.js"></script>
+<script src="scripts/iscroll-probe.js"></script>
+<script src="scripts/popup.zepto.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/index.min.js -->
+<script src="scripts/index.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/download.min.js -->
+<script src="scripts/download.js"></script>
+<!-- endbuild -->
+<script>
+	$(window).load(function(){
+		$('.top-btn').addClass('circle-infinite');
+	})
+
+	showLoading();
+    $('#canvas').hide();
+
+
+// 排行榜记录
+    var rankp = 0;
+    var rankUrl = '';
+
+	function ajaxUpLoad(){
+		$.ajax({
+			type: 'POST',
+			url: rankurl,
+			data: {rankp: ++rankp},
+			timeout: 1000,
+			beforeSend: function(){
+
+console.log($('#canvas'));
+
+				$('#canvas').show();
+
+			},
+			success: function(res){
+
+console.log(res);
+
+			},
+			error: function(){
+				oTools.alertmess('请检查您的网络~');
+                $('#canvas').hide();
+			},
+			complete: function(){
+                $('#canvas').hide();
+			}
+		})
+	}
+
+
+
+// 好友助力记录
+	$('#loadmore').on('tap', function(){
+
+var html = '<dt class="friend-head"><img src="images/test-header.jpg" alt=""></dt><dd class="friend-info"><h3>哈萨德</h3><p>帮您获得<span>55</span>个徽章</p></dd><dd class="friend-date">2015-01-08</dd>';
+    $('#friendDl').append(html);
+
+		wrapScroll.refresh();
+
+		// ajaxPage();
+	});
+
+// ajax分页
+	var friendP = 0,
+		friendUrl = '';
+
+	function ajaxPage(obj){
+		$.ajax({
+			url: url,
+			type: "POST",
+			data: {friendP: ++friendP},
+			timeout: 5000,
+			beforeSend: function(){
+				$('#canvas').show();
+			},
+			success: function(res){
+console.log(res);
+			},
+			error: function(){
+				oTools.alertmess('请检查您的网络~');
+                $('#canvas').hide();
+			},
+			complete: function(){
+                $('#canvas').hide();
+			}
+		})
+	}
+
+</script>
+
+</body>
+</html>

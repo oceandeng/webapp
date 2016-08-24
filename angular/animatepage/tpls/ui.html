@@ -1,0 +1,27 @@
+{{ui}} <br>
+
+<p><input ng-model="name"> </p>
+<p><textarea ng-model="html"></textarea></p>
+
+<div compile="name"></div>
+<div compile="html"></div>
+
+<expander class="expander" expander-title="obj.title">
+	{{obj.text}}
+</expander>
+
+<div ng-click="liger()">按钮</div>
+
+<!-- 新增分润规则弹框-->
+<div id='capacityFenRun' style="display: none;">
+	bbbbbbbbbb
+    <div class="commenBtn_Box">
+        <a ng-click="savePayPlan()"  class="btn btn-guide btn1">确认</a>    
+        <a ng-click="closePay()" class="btn btn-normal hui">取消</a>        
+    </div>
+</div>
+<!-- 新增分润规则弹框end-->
+<clickable foo="foo" bar="bar"></clickable>
+
+<input ng-model="name">
+{{update}}
