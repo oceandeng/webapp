@@ -193,6 +193,7 @@ bookStoreCtrls.controller('UI', ['$rootScope', '$scope', function($rootScope, $s
         $.ligerDialog.open({
                 title: 'aaa',
                 target: $("#capacityFenRun"),
+                wrap: '#wrap',
                 width: 600,
                 id:"fenrunDailog",
                 isHidden: false,
