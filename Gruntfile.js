@@ -4,7 +4,7 @@
 
 // # Globbing
 // for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
+// 'test/spec/**/*.js'
 // If you want to recursively match all subfolders, use:
 // 'test/spec/**/*.js'
 
@@ -37,22 +37,22 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       babel: {
-        files: ['<%= config.app %>/scripts/{,*/}*.js'],
+        files: ['<%= config.app %>/scripts/**/*.js'],
         tasks: ['babel:dist']
       },
       babelTest: {
-        files: ['test/spec/{,*/}*.js'],
+        files: ['test/spec/**/*.js'],
         tasks: ['babel:test', 'test:watch']
       },
       gruntfile: {
         files: ['Gruntfile.js']
       },
       sass: {
-        files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= config.app %>/styles/**/*.{scss,sass}'],
         tasks: ['sass', 'postcss']
       },
       styles: {
-        files: ['<%= config.app %>/styles/{,*/}*.css'],
+        files: ['<%= config.app %>/styles/**/*.css'],
         tasks: ['newer:copy:styles', 'postcss']
       }
     },
@@ -68,10 +68,10 @@ module.exports = function (grunt) {
       livereload: {
         options: {
           files: [
-            '<%= config.app %>/{,*/}*.html',
-            '.tmp/styles/{,*/}*.css',
-            '<%= config.app %>/images/{,*/}*',
-            '.tmp/scripts/{,*/}*.js'
+            '<%= config.app %>/**/*.html',
+            '.tmp/styles/**/*.css',
+            '<%= config.app %>/images/**/*',
+            '.tmp/scripts/**/*.js'
           ],
           port: 9000,
           server: {
@@ -123,9 +123,9 @@ module.exports = function (grunt) {
     eslint: {
       target: [
         'Gruntfile.js',
-        '<%= config.app %>/scripts/{,*/}*.js',
+        '<%= config.app %>/scripts/**/*.js',
         '!<%= config.app %>/scripts/vendor/*',
-        'test/spec/{,*/}*.js'
+        'test/spec/**/*.js'
       ]
     },
 
@@ -148,7 +148,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/scripts',
-          src: '{,*/}*.js',
+          src: '**/*.js',
           dest: '.tmp/scripts',
           ext: '.js'
         }]
@@ -157,7 +157,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'test/spec',
-          src: '{,*/}*.js',
+          src: '**/*.js',
           dest: '.tmp/spec',
           ext: '.js'
         }]
@@ -178,7 +178,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/styles',
-          src: ['{,*/}*.{scss,sass}'],
+          src: ['**/*.{scss,sass}'],
           dest: '.tmp/styles',
           ext: '.css'
         }]
@@ -199,7 +199,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
+          src: '**/*.css',
           dest: '.tmp/styles/'
         }]
       }
@@ -208,11 +208,11 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the HTML file
     wiredep: {
       app: {
-        src: ['<%= config.app %>/{,*/}*.html'],
+        src: ['<%= config.app %>/**/*.html'],
         ignorePath: /^(\.\.\/)*\.\./
       },
       sass: {
-        src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        src: ['<%= config.app %>/styles/**/*.{scss,sass}'],
         ignorePath: /^(\.\.\/)+/
       }
     },
@@ -221,10 +221,10 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= config.dist %>/scripts/{,*/}*.js',
-          '<%= config.dist %>/styles/{,*/}*.css',
-          '<%= config.dist %>/images/{,*/}*.*',
-          '<%= config.dist %>/styles/fonts/{,*/}*.*',
+          '<%= config.dist %>/scripts/**/*.js',
+          '<%= config.dist %>/styles/**/*.css',
+          '<%= config.dist %>/images/**/*.*',
+          '<%= config.dist %>/styles/fonts/**/*.*',
           '<%= config.dist %>/*.{ico,png}'
         ]
       }
@@ -237,7 +237,7 @@ module.exports = function (grunt) {
       options: {
         dest: '<%= config.dist %>'
       },
-      html: '<%= config.app %>/{,*/}*.html'
+      html: '<%= config.app %>/**/*.html'
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
@@ -249,8 +249,8 @@ module.exports = function (grunt) {
           '<%= config.dist %>/styles'
         ]
       },
-      html: ['<%= config.dist %>/{,*/}*.html'],
-      css: ['<%= config.dist %>/styles/{,*/}*.css']
+      html: ['<%= config.dist %>/**/*.html'],
+      css: ['<%= config.dist %>/styles/**/*.css']
     },
 
     // The following *-min tasks produce minified files in the dist folder
@@ -259,7 +259,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/images',
-          src: '{,*/}*.{gif,jpeg,jpg,png}',
+          src: '**/*.{gif,jpeg,jpg,png}',
           dest: '<%= config.dist %>/images'
         }]
       }
@@ -270,7 +270,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/images',
-          src: '{,*/}*.svg',
+          src: '**/*.svg',
           dest: '<%= config.dist %>/images'
         }]
       }
@@ -293,7 +293,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= config.dist %>',
-          src: '{,*/}*.html',
+          src: '**/*.html',
           dest: '<%= config.dist %>'
         }]
       }
@@ -306,8 +306,8 @@ module.exports = function (grunt) {
     //   dist: {
     //     files: {
     //       '<%= config.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%= config.app %>/styles/{,*/}*.css'
+    //         '.tmp/styles/**/*.css',
+    //         '<%= config.app %>/styles/**/*.css'
     //       ]
     //     }
     //   }
@@ -335,9 +335,9 @@ module.exports = function (grunt) {
           dest: '<%= config.dist %>',
           src: [
             '*.{ico,png,txt}',
-            'images/{,*/}*.webp',
-            '{,*/}*.html',
-            'styles/fonts/{,*/}*.*'
+            'images/**/*.webp',
+            '**/*.html',
+            'styles/fonts/**/*.*'
           ]
         }]
       }

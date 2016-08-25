@@ -33,7 +33,7 @@ angular.module('myApp', []) .directive('myDirective', function() {
 var bookStoreDirectives = angular.module('bookStoreDirectives', []);
 
 // ng-repeat 渲染完成
-bookStoreDirectives.directive('repeatFinish', function($timeout) {
+bookStoreDirectives.directive('repeatFinish', ["$timeout", function($timeout) {
 	return {
         restrict: 'A',
         scope: false,
@@ -47,7 +47,7 @@ bookStoreDirectives.directive('repeatFinish', function($timeout) {
 			}
 		}
 	}
-});
+}]);
 
 // 滚动表格指令封装
 bookStoreDirectives.directive('stable', function(){
@@ -72,7 +72,7 @@ bookStoreDirectives.directive('stable', function(){
 })
 
 // $compile 服务应用demo
-bookStoreDirectives.directive('compile', function($compile){
+bookStoreDirectives.directive('compile', ["$compile", function($compile){
 	return {
 		restrict: 'EA',
 		link: function(scope, element, attr){
@@ -84,7 +84,7 @@ bookStoreDirectives.directive('compile', function($compile){
 			});
 		}
 	}
-});
+}]);
 
 // expander
 bookStoreDirectives.directive('expander', function(){
