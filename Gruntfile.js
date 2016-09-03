@@ -20,7 +20,7 @@ module.exports = function (grunt) {
 
   // Configurable paths
   var config = {
-    app: 'animatepage',
+    app: 'datashow',
     dist: 'dist'
   };
 
