@@ -20,7 +20,6 @@
     "grunt-mocha": "^0.4.12",
     "grunt-newer": "^1.1.0",
     "grunt-postcss": "^0.6.0",
-    "grunt-sass": "^1.0.0",
     "grunt-svgmin": "^2.0.1",
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^2.0.0",
