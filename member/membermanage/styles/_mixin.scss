@@ -1,0 +1,48 @@
+@mixin clearfix(){
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin line-height($height: 50px){
+  height: $height;
+  line-height: $height;
+  text-align: center;
+}
+
+@mixin button($height: 50px, $color: #ff8502){
+  @include line-height($height);
+  background: $color;
+  font-size: 18px;
+}
+
+@mixin text-overflow(){
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow : ellipsis;
+}
+
+@mixin border-top($b-color: #e8e8e8){
+  border-top: 1px solid $b-color;
+}
+
+@mixin border-bottom($b-color: #e8e8e8){
+  border-bottom: 1px solid $b-color;
+}
+
+
+@mixin box-center(){
+  display: -webkit-box;
+  display: -moz-box;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+}

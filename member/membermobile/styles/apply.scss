@@ -1,0 +1,25 @@
+@import "mixin", "variable";
+
+.apply{
+
+	.body-bg{
+		@include clearfix();
+
+		img{
+			float: left;
+		}
+	}
+	
+	.btn{
+		position: absolute;
+		top: 60%;
+		z-index: 9;
+		width: 60%;
+		left: 50%;
+		margin-left: -30%;
+		@include line-height(44px);
+		background: #7ecc3f;
+		border-radius: 3px;
+		color: #fff;
+	}
+}

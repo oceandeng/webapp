@@ -1,0 +1,217 @@
+@import "mixin", "variable";
+
+.top-tit{
+    color: $g666;
+}
+
+.top-tab{
+	margin: 0 0 20px 0;
+    box-shadow: 0 0 10px #ccc;
+    ul{
+    	padding: 0 0 0 30px;
+    	list-style-type: none;
+    	@include clearfix();
+
+    	li{
+    		@include line-height(60px);
+    		padding: 0 20px;
+    		margin: 0 10px;
+    		float: left;
+    		cursor: pointer;
+            font-size: 16px;
+
+			&.active{
+				color: $bg-color;
+				border-bottom: 3px solid $bg-color;
+			}
+    	}
+
+    }
+}
+
+.s-info{
+    list-style-type: none;
+    color: $g333;
+    min-height: 100px;
+}
+
+.lev-tit{
+    margin: 5px 0;
+}
+.lev-raido{
+    label{
+        font-weight: normal;
+        cursor: pointer;
+    }
+    input{
+        margin: 0 10px 0 0;
+    }
+}
+
+.lev-set{
+    input{
+        @include line-height(30px);
+        border: 1px solid $b-color;
+        padding: 0 10px;
+    }
+    .th{
+        background: #f6f6f6;
+    }
+    tfoot{
+        color: $bg-color;
+        cursor: pointer;
+    }
+}
+
+.btn-line{
+    margin: 30px 0 0 0;
+    @include box-center();
+    
+    .cbtn{
+        border-radius: 3px;
+        padding: 0 30px;
+    }
+}
+
+.int-input{
+    width: 60px;
+    @include line-height(30px);
+    border: 1px solid $b-color;
+    margin: 0 10px;
+}
+
+.textarea{
+    width: 96%;
+    height: 100px;
+    padding: 10px 2%;
+    margin: 10px 0;
+    border: 1px solid $b-color;
+    resize: none;
+}
+
+.check-box{
+    @include box-center();
+}
+
+#outBox{
+    width: 66px;
+    height: 30px;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+}
+#inBox{
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, .4);
+}
+
+.open-one{
+    background: #96d85b;
+}
+.open-two{
+    top: 2px;
+    right: 1px;
+}
+.close-one{
+    background: rgba(200, 200, 200, .4);
+    border-left: transparent;
+}
+.close-two{
+    left: 0px;
+    top: 0px;
+}
+
+.city-picker{
+    position: relative;
+}
+.card-con{
+    position: relative;
+    .sel-bg{
+        text-align: right;
+        cursor: pointer;
+        color: $bg-color;
+        position: absolute;
+        top: -30px;
+        left: 280px;
+    }
+}
+.card-box{
+    width: 330px;
+    height: 155px;
+    position: relative;
+    overflow: hidden;
+    float: left;
+
+    .member-con{
+        .logo,.QR,.card-num,.info{
+            position: absolute;
+        }
+        .logo{
+            left: 10px;
+            top: 10px;
+            @include clearfix();
+            width: 90%;
+            .logo-p{
+                float: left;
+                img{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                }
+            }
+            .name{
+                max-width: 200px;
+                @include text-overflow();
+                color: #fff;
+                font-size: 16px;
+                margin: 5px 0 0 10px;
+                padding: 0;
+                float: left;
+            }
+        }
+        .card-num{
+            left: 10px;
+            bottom: 10px;
+            @include line-height(20px);
+            text-align: left;
+            color: #5a5761;
+        }
+
+    }
+}
+
+.card-edit{
+    float: left;
+    margin: 22px 0 0 15px;
+}
+
+/* colorSelector */
+.colorSelector {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin: 10px 0 0 0;
+    cursor: pointer;
+
+    p{
+        width: 150px;
+        padding: 0 0 0 30px;
+        line-height: 24px;
+    }
+     div {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border: 1px solid $b-color;
+        background:url(../images/colorpicker/select.png) center;
+    }
+}
+
+.delete-btn{
+    color: $red;
+    cursor: pointer;
+}

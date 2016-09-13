@@ -1,0 +1,61 @@
+<div class="content">
+	<div class="top-tab">
+		<ul>
+			<li ui-sref="memberSet" ui-sref-opts="{reload: true}">会员卡设置</li>
+			<li class="active" ui-sref="memberLevelSet" ui-sref-opts="{reload: true}">等级设置</li>
+			<li ui-sref="memberIntegralSet" ui-sref-opts="{reload: true}">积分设置</li>
+		</ul>
+	</div>
+
+	<section class="row">
+		<section class="col-md-12">
+			<section class="top-tit f16">等级规则</section>
+			<section class="main-box">
+				<div class="lev-tit">等级条件</div>
+				<div class="lev-raido">
+					<label><input type="checkbox" name="condition" ng-model="condition" parse-data>累计消费</label>
+					<span class="gccc ml20">会员等级取决于该会员的累计消费值</span>
+				</div>
+
+				<div class="lev-tit">等级有效期</div>
+				<div class="lev-raido">
+					<label><input type="checkbox" name="validity" ng-model="validity" parse-data>永久有效</label>
+				</div>
+			</section>
+		</section>
+	</section>
+
+	<section class="row mt10">
+		<section class="col-md-12">
+			<section class="top-tit f16">设置等级</section>
+			<section class="main-box">
+				<table class="lev-set" level-set>
+					<thead>
+						<tr>
+							<th width="30%">等级名称</th>
+							<th width="40%">等级条件 <span class="gccc">（累计消费值的范围）</span></th>
+							<th width="30%">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="text"></td>
+							<td>0（含）－ <input type="text" /></td>
+							<td class="handle"></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="3" id="addLev">+ 添加会员等级</td>
+						</tr>
+					</tfoot>
+				</table>
+			</section>
+		</section>
+	</section>
+
+	<section class="btn-line">
+		<div class="cbtn cbtn-blue" lev-save-fn>保存</div>
+	</section>
+
+</div>

@@ -1,0 +1,51 @@
+<articel class="apply-info">
+	<section class="content">
+		<div class="f-con">
+			<div class="f-line" ng-if="name">
+				<h4>姓名</h4>
+				<p><input type="text" class="t-input" placeholder="请输入您的真实姓名" ng-disabled="" ng-reqired=""></p>
+			</div>
+			<div class="f-line" ng-if="sex">
+				<h4>性别</h4>
+				<p>
+					<select class="c-select">
+						<option value="" selected="true" disabled="true" style="display: none;">选择类型</option>
+						<option value="男">男</option>	
+						<option value="女">女</option>	
+					</select>
+				</p>
+			</div>
+			<div class="f-line" ng-if="birthday">
+				<h4>生日</h4>
+				<p><input type="text" class="t-input" placeholder="请填写您的生日"></p>
+			</div>
+			<div class="f-line" ng-if="email">
+				<h4>邮箱</h4>
+				<p><input type="text" class="t-input" placeholder="请填写您的邮箱"></p>
+			</div>
+			<div class="f-line" ng-if="jobs">
+				<h4>职业</h4>
+				<p><input type="text" class="t-input" placeholder="请填写您的职业"></p>
+			</div>
+			<div class="f-line" ng-if="address">
+				<h4>地址</h4>
+				<p><input type="text" class="t-input" placeholder="请填写您的地址"></p>
+			</div>
+			
+		</div>
+
+		<div class="f-con" ng-if="mobile">
+			<div class="f-line">
+				<h4>手机号</h4>
+				<p><input type="text" class="t-input" placeholder="请输入您的手机号"></p>
+			</div>
+			<div class="f-line">
+				<h4>验证码</h4>
+				<p><input type="text" class="t-input" placeholder="请输入您的验证码"></p>
+			</div>
+		</div>
+		
+		<div id="activate" class="btn" activate-fn>激活会员卡</div>
+
+	</section>
+</articel>

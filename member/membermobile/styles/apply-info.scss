@@ -1,0 +1,51 @@
+@import "mixin", "variable";
+
+.apply-info{
+	background: $bg-color;
+	@include clearfix();
+
+	.f-con{
+		background: #fff;
+		border-radius: 3px;
+		padding: 20px 10px;
+		margin: 20px 10px;
+		
+		.f-line{
+			margin: 0 0 10px 0;
+			h4{
+				margin: 0;
+			}
+			p{
+				margin: 5px 0 0 0;
+			}
+
+			&:last-child{
+				margin: 0;
+			}
+
+			.t-input, select{
+				width: 100%;
+				@include line-height(44px);
+				background: $bg-color;
+				border: none;
+				border-radius: 3px;
+				box-sizing: border-box;
+				padding: 0 10px;
+				text-align: left;
+			}
+			.c-select{
+				background: url('../images/arrow-down.gif') #fff no-repeat 95% center;
+			}
+		}
+
+	}
+	
+	.btn{
+		width: 80%;
+		margin: 0 auto 20px auto;
+		@include line-height(44px);
+		background: #7ecc3f;
+		border-radius: 3px;
+		color: #fff;
+	}
+}

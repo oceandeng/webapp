@@ -1,0 +1,61 @@
+@import "mixin", "variable";
+
+.integral{
+	.top-bar{
+		@include clearfix();
+		position: relative;
+
+		&>img{
+			float: left;
+		}
+		.t-b-con{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+
+			h4{
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				margin: 0;
+				padding: 0;
+				font-weight: normal;
+				color: $g999;
+			}
+			
+			@include box-center();
+			.t-b-s{
+				margin: 20px 0 0 0;
+				@include clearfix();
+
+				img{
+					float: left;
+					width: 38px;
+					margin: 0 10px 0 0;
+				}
+				p{
+					float: left;
+					margin: 0;
+					font-size: 24px;
+					line-height: 50px;
+				}
+			}
+		}
+	}
+	.i-record{
+		.sub-tit{
+			@include line-height(40px);
+			text-align: left;
+			padding: 0 10px;
+			margin: 10px 0 0 0;
+			color: $g999;
+		}
+		.lh45{
+			@include line-height(25px);
+			span{
+				display: inline !important;
+			}
+		}
+	}
+}

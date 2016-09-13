@@ -1,0 +1,240 @@
+@import "normalize", "mixin", "variable", "response";
+
+body{
+    font-family: $family;
+    background: #f4f4f4;
+    font-size: 14px;
+    @media (max-width: 320px){
+        font-size: 14px;
+    }
+}
+
+img{
+    max-width: 100%;
+}
+
+.bg-violet{background: $violet}
+.bg-yellow{background: $yellow}
+.bg-pink{background: $pink}
+.g999{color: $g999}
+.red{color: #fe4444 !important}
+.mt0{margin: 0 !important}
+.tal{text-align: left !important}
+.tar{text-align: right !important}
+
+.content{
+    .icon{
+        display: block;
+        width: 50px;
+        height: 50px;
+        background: url(../images/icon.png) no-repeat;
+    }
+    .i-QR{background-position: 0 0}
+    .i-info{background-position: -50px 0;}
+    .i-level{background-position: -100px 0;}
+    .i-store{background-position: -150px 0;}
+    .i-integral{background-position: -200px 0;}
+    .i-privilege{background-position: -250px 0;}
+    .i-inte-shop{background-position: -300px 0;}
+}
+
+.list-box{
+	margin: 20px 0 0 0;
+	border-top: 1px solid $b-color;
+	border-bottom: 1px solid $b-color;
+	background: #fff;
+
+	.list-row{
+		@include line-height();
+		font-size: 14px;
+		.l-l{
+			@include box-center();
+			span{
+				@include line-height();
+				width: 100%;
+				display: block;
+				border-bottom: 1px solid $b-color;
+				text-align: left;
+				color: $g333;
+			}
+			img{
+				display: block;
+				width: 80%;
+				margin: 0 auto;
+				border-radius: 50%;
+			}
+		}
+		.l-r{
+			span{
+				display: block;
+				border-bottom: 1px solid $b-color;
+				padding: 0 10px 0 0;
+				color: $f-color;
+			}
+			.h-arrow{
+				padding: 0 10px 0 0;
+				text-align: left;
+				@include text-overflow();
+				b{
+					display: block;
+					@include line-height();
+					text-align: left;
+					font-weight: normal;
+					padding: 0 20px 0 0;
+					background: url(../images/arrow.png) no-repeat right center;
+					background-size: 10px 17px;
+				}
+				i{
+					font-style: normal !important;
+				}
+			}
+			.d-arrow{
+				padding: 0 10px 0 0;
+				
+				b{
+					display: block;
+					@include line-height();
+					text-align: right;
+					font-weight: normal;
+					padding: 0 20px 0 0;
+					background: url(../images/d-arrow.png) no-repeat right center;
+					background-size: 17px 10px;
+				}
+			}
+			input{
+				width: 100%;
+				@include line-height(28px);
+				margin: 10px 0;
+				padding: 0;
+				border: none;
+				text-align: right;
+				color: $g666;
+			}
+		}
+
+		&:last-child{
+			.l-l{
+				span{
+					border-bottom: none;
+				}
+			}
+			.l-r{
+				span{
+					border-bottom: none;
+				}
+			}	
+		}
+	}
+
+	.list-nh-row{
+		@include clearfix();
+		border-bottom: 1px solid $b-color;
+		padding: 10px 0;
+		overflow: hidden;
+
+		.r-arrow{
+			background: url(../images/arrow.png) no-repeat right center;
+			background-size: 10px 17px;
+		}
+		.l-row{
+			margin: 5px 10px;
+			@include clearfix();
+
+			h4{
+				margin: 0;
+				font-weight: normal;
+			}
+			p{
+				margin: 0;
+			}
+		}
+		.c-row{
+			height: 42px !important;
+			padding: 10px 10px 10px 0 !important;
+
+			h4{
+				margin: 0;
+			}
+			p{
+				margin: 0;
+			}
+			i{
+				font-style: normal;
+			}
+		}
+		.l-l{
+			span{
+				display: block;
+				margin: 0 0 0 10px;
+				text-align: left;
+				color: $g333;
+				i{
+					font-style: normal;
+				}
+			}
+			img{
+				display: block;
+				width: 80%;
+				margin: 0 auto;
+				border-radius: 50%;
+			}
+		}
+		.l-r{
+			position: relative;
+			span{
+				display: block;
+				padding: 0 10px 0 0;
+				text-align: left;
+				color: $g666;
+			}
+			.h-arrow{
+				padding: 0 10px 0 0;
+				
+				b{
+					display: block;
+					text-align: left;
+					font-weight: normal;
+					padding: 0 20px 0 0;
+					background: url(../images/arrow.png) no-repeat right center;
+					background-size: 10px 17px;
+				}
+				p{
+					@include text-overflow();
+					line-height: 24px;
+				}
+			}
+			.d-arrow{
+				padding: 0 10px 0 0;
+				
+				b{
+					display: block;
+					@include line-height();
+					text-align: right;
+					font-weight: normal;
+					padding: 0 20px 0 0;
+					background: url(../images/d-arrow.png) no-repeat right center;
+					background-size: 17px 10px;
+				}
+			}
+
+			p{
+				margin: 0;
+			}
+		}
+
+		&:last-child{
+			border-bottom: none;
+			.l-l{
+				span{
+					border-bottom: none;
+				}
+			}
+			.l-r{
+				span{
+					border-bottom: none;
+				}
+			}	
+		}
+	}
+
+}

@@ -1,0 +1,115 @@
+@import "normalize", "mixin", "variable";
+
+html, body{
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+    background: #f6f6f6;
+}
+
+img{max-width: 100%}
+
+.bg-violet{background: $violet}
+.bg-yellow{background: $yellow}
+.bg-pink{background: $pink}
+.g999{color: $g999}
+.gccc{color: #ccc}
+.red{color: #fe4444 !important}
+.yellow{color: #ffc975}
+.mt10{margin-top: 10px !important}
+.mt20{margin-top: 20px !important}
+.ml20{margin-left: 20px}
+.f14{font-size: 14px}
+.f16{font-size: 16px}
+
+.clearfix{
+    @include clearfix();
+}
+
+.menu {
+    width: 180px;
+    height: 100%;
+    background: #ebecf0;
+    position: fixed;
+    left: 0;
+    z-index: 99;
+    border-right: 1px solid #d0d4d9;
+    box-sizing: border-box;
+    ul{
+        margin: 0;
+        padding: 0;
+    }
+    li a {
+        border-top: 1px solid #d0d4d9;
+        box-sizing: border-box;
+        padding: 0 10px 0 20px;
+        line-height: 44px;
+        display: block;
+        width: 100%;
+        background: #e1e2e6;
+        text-decoration: none
+    }
+
+    li a .iconfont {
+        padding-right: 10px;
+        font-size: 18px
+    }
+
+    li a.sel i {
+        color: #666
+    }
+
+    ul.level2 {
+        background: #ebecf0;
+        padding: 0 0
+    }
+
+    ul.level2 li a {
+        padding-left: 40px;
+        border: none;
+        background: none;
+        line-height: 36px;
+        font-size: 12px;
+        color: #333;
+    }
+
+    ul.level2 li a i {
+        padding-right: 5px
+    }
+
+    ul.level2 li a.active {
+        background: #54a1e9;
+        color: #fff
+    }
+
+    ul.level2 li a:hover {
+        background: #54a1e9;
+        color: #fff
+    }
+}
+
+.main{width: 100%;}
+
+.container {
+    position: relative;
+    padding-left: 180px;
+    background: #fff;
+    width: 100%;
+}
+
+.content{
+    padding: 20px;
+    
+}
+
+.page-list{
+    @include clearfix();
+    font-size: 14px;
+}
+.page-list .pagination {float:right;}
+.page-list .pagination span {cursor: pointer;}
+.page-list .pagination .separate span{cursor: default; border-top:none;border-bottom:none;}
+.page-list .pagination .separate span:hover {background: none;}
+.page-list .page-total {float:right; margin: 25px 20px;}
+.page-list .page-total input, .page-list .page-total select{height: 26px; border: 1px solid #ddd;}
+.page-list .page-total input {width: 40px; padding-left:3px;}
+.page-list .page-total select {width: 50px;}

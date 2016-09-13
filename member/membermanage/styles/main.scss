@@ -1,0 +1,104 @@
+@import "mixin", "variable";
+.main-box{
+    margin: 10px 0;
+    padding: 20px;
+    box-shadow: 0 0 10px #ccc;
+    position: relative;
+    background: #fff;
+
+    table{
+		width: 100%;
+
+    	th, td{
+	    	border-collapse: collapse;
+    		border: 1px solid $b-color;
+			@include line-height();
+
+    	}
+    }
+
+    .p-input{
+    	@include line-height(40px);
+    	text-align: left;
+    	padding: 0 5%;
+    	border: 1px solid $b-color;
+		width: 100%;
+    }
+
+    .n-input{
+    	@include line-height(30px);
+    	padding: 0 5%;
+    	border: 1px solid $b-color;
+		width: 150px;
+    }
+
+	.sel-box{
+		.select{
+			color: $bg-color;
+			width: 160px;
+			cursor: pointer;
+		}
+		.selectBox-arrow{
+			width: 40px;
+			height: 40px;
+		}
+	}
+
+    .t-area{
+    	width: 96%;
+    	height: 130px;
+    	padding: 2%;
+    	border: 1px solid $b-color;
+    }
+
+    .upload{
+    	position: absolute;
+    	right: 10px;
+    	top: 20px;
+        
+    	.up-wrap{
+    		width: 80px;
+    		height: 80px;
+    		margin: 0 auto;
+    		border: 1px solid $b-color;
+    	}
+    	.up-btn{
+    		margin: 10px;
+    		@include line-height(30px);
+    		background: $bg-color;
+    		color: #fff;
+    		padding: 0 15px;
+    		border-radius: 3px;
+    		cursor: pointer;
+    	}
+    }
+
+    input[type="file"]{
+        position: absolute;
+        top: -5000px;
+        left: -5000px;
+    }
+
+    .edit-card{
+    	margin: 10px 0;
+    	.tit-bar{
+    		margin: 0 0 5px 0;
+
+    		.up-bg{
+    			color: $bg-color;
+    			cursor: pointer;
+    		}
+    	}
+    }
+}
+
+.cbtn{
+    @include line-height(40px);
+    cursor: pointer;
+
+}
+.cbtn-blue{
+    color: #fff;
+    background: $bg-color;
+
+}

@@ -1,0 +1,44 @@
+<article class="content">
+	<section class="top-tit">
+		会员列表<span class="gccc">（会员资料管理）</span>
+	</section>
+	<section class="main-box">
+		<div class="search-bar">
+			<div class="search-box">
+				<input type="text" ng-model="searchVal" placeholder="请输入会员昵称/手机号/卡号">
+				<div class="cbtn cbtn-blue s-btn" ng-click="searchFn()">搜索</div>
+			</div>
+		</div>
+		<div class="table-box">
+			<table>
+				<tr>
+					<th>会员头像</th>
+					<th>会员昵称</th>
+					<th>手机号</th>
+					<th>会员卡号</th>
+					<th>性别</th>
+					<th>会员等级</th>
+					<th>来源</th>
+					<th>是否关注公众号</th>
+					<th>会员卡状态</th>
+					<th>操作</th>
+				</tr>
+				<tr ng-repeat="item in listData">
+					<td>{{item.user_img}}</td>
+					<td>{{item.nickname}}</td>
+					<td>{{item.phone}}</td>
+					<td>{{item.card_num}}</td>
+					<td>{{item.sex}}</td>
+					<td>{{item.user_level}}</td>
+					<td>{{item.source}}</td>
+					<td>{{item.is_focus}}</td>
+					<td>{{item.is_activated}}</td>
+					<td></td>
+				</tr>
+			</table>
+			<pagination conf="paginationConf"></pagination>
+			
+		</div>
+	</section>
+
+</article>

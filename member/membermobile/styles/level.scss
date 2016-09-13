@@ -1,0 +1,93 @@
+@import "mixin", "variable";
+
+.level{
+	.top-bar{
+		@include clearfix();
+		position: relative;
+
+		&>img{
+			float: left;
+		}
+		.t-b-con{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+
+			h4{
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				margin: 0;
+				padding: 0;
+				font-weight: normal;
+				color: $g999;
+			}
+			
+			@include box-center();
+			.t-b-s{
+				margin: 30px 0 0 0;
+				@media (max-width: 320px){
+					margin: 20px 0 0 0;
+				}
+				@include clearfix();
+
+				img{
+					float: left;
+					width: 50px;
+					margin: 0 10px 0 0;
+				}
+				p{
+					float: left;
+					margin: 0;
+					font-size: 16px;
+					line-height: 50px;
+				}
+			}
+		}
+	}
+	.bar{
+		margin: 10px;
+		border-radius: 5px;
+		background: #fff;
+		padding: 10px;
+
+		.progress-con{
+			position: relative;
+			height: 6px;
+			top: 6px;
+		}
+
+		.progress-bar{
+			position: absolute;
+			width: 0;
+			height: 6px;
+			border-radius: 3px;
+
+			@include gradient(rgb(226, 208, 204), rgb(251, 150, 123));
+		}
+		.progress-bar-bg{
+			position: absolute;
+			width: 100%;
+			height: 6px;
+			border-radius: 3px;
+			
+			background: #eee;
+		}
+	}
+	.i-record{
+		.sub-tit{
+			@include line-height(40px);
+			text-align: left;
+			padding: 0 10px;
+			margin: 10px 0 0 0;
+			color: $g999;
+		}
+		.lh45{
+			@include line-height(25px);
+			span{
+				display: inline !important;
+			}
+		}
+	}
+}

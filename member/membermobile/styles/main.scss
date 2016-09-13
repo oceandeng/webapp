@@ -1,0 +1,128 @@
+@import "mixin", "variable";
+
+@include default-form();
+
+.marT0{margin-top: 0 !important}
+.tc{text-align: center}
+.f12{font-size: 12px}
+
+.member-card-box{
+    background: #fff;
+    .member-card{
+        padding: 10px 10px 20px 10px;
+        border-bottom: 1px solid $b-color;
+        position: relative;
+
+        .m-c-img{
+            border-radius: 5px;
+            box-shadow: 0px 5px 15px #999;
+        }
+
+        .member-con{
+            .logo,.QR,.card-num,.info{
+                position: absolute;
+            }
+            .logo{
+                left: 20px;
+                top: 20px;
+                @include clearfix();
+                width: 90%;
+                .logo-p{
+                    width: 50px;
+                    height: 50px;
+                    padding: 5px;
+                    background: rgba(255, 255, 255, .2);
+                    border-radius: 50%;
+                    float: left;
+                    img{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                    }
+                }
+                .name{
+                    max-width: 200px;
+                    @include text-overflow();
+                    color: #fff;
+                    font-size: 16px;
+                    margin: 20px 0 0 10px;
+                    padding: 0;
+                    float: left;
+                }
+            }
+            .card-num{
+                left: 20px;
+                bottom: 40px;
+                @include line-height(20px);
+                text-align: left;
+                color: #5a5761;
+            }
+            .QR{
+                right: 10px;
+                top: 25px;
+            }
+            .info{
+                right: 10px;
+                bottom: 30px;
+            }
+        }
+    }
+    .m-menu{
+        display: flex;
+        width: 100%;
+        padding: 20px 0 0 0;
+        margin: 0;
+
+        .i-m-item{
+            flex: 1;
+            text-align: center;
+
+            .i-box{
+                margin: 0 auto;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+            i{
+                margin: 0 auto;
+            }
+            p{
+                margin: 10px 0;
+                color: #5a5761;
+            }
+        }
+    }
+}
+.index{
+    .content{
+        padding: 0 0 80px 0;
+    }
+}
+
+.footer-bar{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    .f-row{
+        margin: 0 10px;
+        background: #fff;
+        border-radius: 5px 5px 0 0;
+        height: 40px;
+        padding: 20px 10px;
+
+        .phone-btn{
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+        }
+        .address{
+            padding: 0 10px 0 0;
+            border-right: 1px solid $b-color;
+            p{
+                margin: 0;
+                @include text-overflow();
+            }
+        }
+    }
+}

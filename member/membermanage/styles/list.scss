@@ -1,0 +1,44 @@
+@import "mixin", "variable";
+
+.search-bar{
+	.search-box{
+		width: 400px;
+		margin: 0 auto;
+		@include clearfix();
+
+		input{
+			width: 300px;
+			@include line-height(40px);
+			padding: 0 10px;
+			text-align: left;
+			box-shadow: 0 0 3px #ccc;
+			border: 1px solid $b-color;
+			float: left;
+		}
+		.s-btn{
+			width: 60px;
+			border-radius: 5px;
+			float: left;
+			margin: 0 0 0 10px;
+		}
+	}
+}
+.table-box{
+	margin: 20px 0 0 0;
+	
+	table{
+		width: 100%;
+
+
+		tr{
+			th, td{
+				@include line-height(60px);
+				font-size: 14px;
+				font-weight: normal;
+				border-collapse: collapse;
+				border:1px solid $b-color;
+
+			}
+		}
+	}
+}

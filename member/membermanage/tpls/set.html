@@ -1,0 +1,278 @@
+<section class="content">
+	<section class="top-tab">
+		<ul>
+			<li class="active" ui-sref="memberSet" ui-sref-opts="{reload: true}">会员卡设置</li>
+			<li ui-sref="memberLevelSet" ui-sref-opts="{reload: true}">等级设置</li>
+			<li ui-sref="memberIntegralSet" ui-sref-opts="{reload: true}">积分设置</li>
+		</ul>
+	</section>
+
+	<section class="row">
+		<section class="col-md-6">
+			<section class="top-tit f16">基本信息设置</section>
+			<section class="main-box" style="height: 380px">
+				<div>会员卡标题</div>
+				<div class="mt10" style="width: 60%">
+					<input type="text" class="p-input" ng-model="card_setting_basic.basicInfo.title" parse-data>
+				</div>
+				<div class="edit-card">
+					<div class="tit-bar">
+						<div class="row">
+							<div class="col-md-6">会员卡背景</div>
+						</div>
+					</div>
+					<div class="edit-img mt10">
+						<div class="row">
+							<div class="col-md-9 clearfix card-con">
+								<div upload data-imgwarp="#cardBg">
+									<input type="file">
+									<div class="sel-bg click-btn">选择背景</div>
+								</div>
+								<div class="card-box">
+									<div id="cardBg" class="card-bg">
+										<img src="images/test/card-bg.png" alt="">
+									</div>
+									<div class="member-con">
+										<div class="logo">
+											<div class="logo-p">
+												<img src="images/test/logo.jpg" alt="">
+											</div>
+											<p class="name">
+												<span id="cardTit">十渡红梅农家院</span><br>
+												<span id="cardLev" class="yellow f14">黄金会员</span>
+											</p>
+										</div>
+										<div id="cardNum" class="card-num">No.87298475639</div>
+										<div class="QR" touch-href="QR">
+											<i class="icon i-QR"></i>
+										</div>
+										<div class="info" touch-href="info">
+											<i class="icon i-info"></i>
+										</div>
+									</div>
+								</div>
+
+								<div class="card-edit">
+									<div class="colorSelector">
+										<div style="background-color: {{titcolor}}" data-invo="#cardTit" data-oldcolor="{{titcolor}}" color-picker></div>
+										<p>标题颜色</p>
+									</div>
+									<div class="colorSelector">
+										<div style="background-color: {{numcolor}}" data-invo="#cardNum" data-oldcolor="{{numcolor}}" color-picker></div>
+										<p>号码颜色</p>
+									</div>
+									<div class="colorSelector">
+										<div style="background-color: {{levcolor}}" data-invo="#cardLev" data-oldcolor="{{levcolor}}" color-picker></div>
+										<p>等级颜色</p>
+									</div>
+								</div>
+
+							</div>
+							<div class="col-md-3"></div>
+						</div>
+					</div>
+				</div>
+				<div>会员卡号</div>
+				<div class="sel-box mt10">
+					<select class="select" data-input="cardnumrules" select-box>
+						<option value="1">系统自动生成</option>
+						<option value="2">手机号作为卡号</option>
+						<option value="3">自定义卡号</option>
+					</select>
+
+					<span id="systemAuto" ng-show="cardNumTypeOne">12位数字卡号</span>
+					<span id="customNum" ng-show="cardNumTypeTwo">
+						<input type="text" class="n-input" ng-model="card_setting_basic.basicInfo.cardnumrules">
+					</span>
+
+				</div>
+				<div class="upload">
+					<div id="upWrap" class="up-wrap"></div>
+					<div upload data-imgwarp="#upWrap">
+						<input type="file">
+						<div class="up-btn click-btn">上传logo</div>
+					</div>
+					<input type="hidden" ng-model="card_setting_basic.basicInfo.logo">
+				</div>
+			</section>
+		</section>
+		<section class="col-md-6">
+			<section class="top-tit f16">商户介绍</section>
+			<section class="main-box" style="height: 380px">
+				<div class="row">
+					<div class="col-md-8">
+						<div>商户名称</div>
+						<div class="mt10"><input type="text" class="p-input" ng-model="card_setting_basic.businessDesc.name"/></div>
+					</div>
+					<div class="col-md-4">
+						<div>会员卡服务电话</div>
+						<div class="mt10"><input type="text" class="p-input" ng-model="card_setting_basic.businessDesc.phone"/></div>
+					</div>
+				</div>
+				<div class="mt20">商户所在地区</div>
+				<div class="city-picker mt10">
+					<input class="p-input" readonly type="text" value="" placeholder="请选择..." ng-model="card_setting_basic.businessDesc.city" city-picker>
+				</div>
+				<div class="mt20">商户详细地址</div>
+				<textarea class="t-area textarea" placeholder="请输入详细地址" ng-model="card_setting_basic.businessDesc.address" get-coordinate></textarea>
+			</section>
+		</section>
+	</section>
+
+	<section class="row">
+		<section class="col-md-12">
+			<section class="top-tit mt10 f16">会员卡介绍</section>
+			<section class="main-box">
+				<section class="row">
+					<section class="col-md-6">
+						<section class="top-tit">特权说明</section>
+							<textarea class="textarea" placeholder="此内容仅供参考，请按实际情况填写，例如：
+1、使用会员卡买单专享*折优惠
+2、消费每满*元可享*积分
+3、积分可用作消费抵扣，每*积分可抵*元" ng-model="card_setting_basic.cardDetails.privilege" ng-show="!card_setting_basic.cardDetails.privilege" parse-data></textarea>							
+							<div class="s-info mt10" ng-show="card_setting_basic.cardDetails.privilege">
+								{{card_setting_basic.cardDetails.privilege}}
+							</div>
+					</section>
+					<section class="col-md-6">
+						<section class="top-tit">使用须知</section>
+							<textarea class="textarea" placeholder="此内容仅供参考，请按实际情况填写，例如：
+1、使用会员卡买单专享*折优惠
+2、消费每满*元可享*积分
+3、积分可用作消费抵扣，每*积分可抵*元" ng-model="card_setting_basic.cardDetails.notes" ng-show="!card_setting_basic.cardDetails.notes" parse-data></textarea>
+							<div class="s-info mt10" ng-show="card_setting_basic.cardDetails.notes">
+								{{card_setting_basic.cardDetails.notes}}
+							</div>
+					</section>
+				</section>
+			</section>
+		</section>
+	</section>
+
+	<section class="row">
+		<section class="col-md-12">
+			<section class="top-tit mt10 f16">激活开卡设置</section>
+			<section class="main-box">
+				<section class="top-tit">会员卡资料收集</section>
+				<table>
+					<tr>
+						<th width="55%">资料名称</th>
+						<th width="15%">是/否启用</th>
+						<th width="15%">是/否必填</th>
+						<th width="15%">是/否可修改</th>
+					</tr>
+					<tr>
+						<td>手机号</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.mobile.isuse" value="{{card_setting_activation.mobile.isuse}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.mobile.ismust" value="{{card_setting_activation.mobile.ismust}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.mobile.ismodify" value="{{card_setting_activation.mobile.ismodify}}"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>姓名</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.name.isuse" value="{{card_setting_activation.name.isuse}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.name.ismust" value="{{card_setting_activation.name.ismust}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.name.ismodify" value="{{card_setting_activation.name.ismodify}}"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>性别</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.sex.isuse" value="{{card_setting_activation.sex.isuse}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.sex.ismust" value="{{card_setting_activation.sex.ismust}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.sex.ismodify" value="{{card_setting_activation.sex.ismodify}}"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>生日</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.birthday.isuse" value="{{card_setting_activation.birthday.isuse}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.birthday.ismust" value="{{card_setting_activation.birthday.ismust}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.birthday.ismodify" value="{{card_setting_activation.birthday.ismodify}}"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>邮箱</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.email.isuse" value="{{card_setting_activation.email.isuse}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.email.ismust" value="{{card_setting_activation.email.ismust}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.email.ismodify" value="{{card_setting_activation.email.ismodify}}"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>职业</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.jobs.isuse" value="{{card_setting_activation.jobs.isuse}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.jobs.ismust" value="{{card_setting_activation.jobs.ismust}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.jobs.ismodify" value="{{card_setting_activation.jobs.ismodify}}"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>地址</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.address.isuse" value="{{card_setting_activation.address.isuse}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.address.ismust" value="{{card_setting_activation.address.ismust}}"></div>
+						</td>
+						<td>
+							<div class="check-box" radio-switch><div id="outBox" class="open-one"><div id="inBox" class="open-two"></div></div>
+							<input type="hidden" ng-model="card_setting_activation.address.ismodify" value="{{card_setting_activation.address.ismodify}}"></div>
+						</td>
+					</tr>
+				</table>
+
+			</section>
+		</section>
+	</section>
+
+	<section class="btn-line">
+		<div class="cbtn cbtn-blue" ng-click="save()">保存</div>
+	</section>
+</section>
