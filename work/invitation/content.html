@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<title>invitation</title>
+<!-- build:css styles/content.css -->
+<link rel="stylesheet" href="styles/content.css">
+<!-- endbuild -->
+<link rel="stylesheet" href="styles/idangerous.swiper.css">
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qRn44eyeVuP1EGWn5ovWnGgs"></script>
+</head>
+<body>
+    
+    <article class="invitation-app">
+        <header>
+            <audio id="music"></audio>
+            <div id="playBtn" class="play-btn"><img src="images/music-icon.png" alt=""></div>
+        </header>
+        <section class="container">
+            <section class="c-header">
+                <div class="top-banner">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"> <img src="images/test/slider1.jpg"> </div>
+                            <div class="swiper-slide"> <img src="images/test/slider2.jpg"> </div>
+                            <div class="swiper-slide"> <img src="images/test/slider3.jpg"> </div>
+                        </div>
+                    </div>
+                    <div class="pagination"></div>
+                </div>
+                <div class="c-header-con"><img src="images/test/user-header.jpg" alt=""></div>
+            </section>
+            <section class="c-container">
+                <div class="top-tips">
+                    <h3>某某紧急爱心义卖活动邀请</h3>
+                    <p>By foreign language teaching and Research Press in 2002-3-1 publishing qualified English translation certificate test tool book, the author is Zhuang yichuan. The structure of this book has two parts: "text" and "contrast between English and chinese". The text is divided into 10 parts.</p>
+                </div>
+                
+                <div class="list-box row mt0">
+                    <div class="list-row">
+                        <div class="l-l span2"><i class="icon i-one"></i>&nbsp;</div>
+                        <div class="l-r span10"><span class="h-arrow">主办方：中企移动电商业务部</span></div>
+                    </div>
+                    <div class="list-row">
+                        <div class="l-l span2"><i class="icon i-two"></i>&nbsp;</div>
+                        <div class="l-r span10"><span class="h-arrow">时间: <i id="startTime">2016.3.12 12:00</i>-<i id="endTime">2016.8.22 12:00</i></span></div>
+                    </div>
+                    <div class="list-row">
+                        <div class="l-l span2"><i class="icon i-thr"></i>&nbsp;</div>
+                        <div class="l-r span10"><a href="tel:010-8987900"><span class="h-arrow"><b>010-8987900</b></span></a></div>
+                    </div>
+                    <div class="list-row">
+                        <div class="l-l span2"><i class="icon i-fou"></i>&nbsp;</div>
+                        <div class="l-r span10"><span id="showMap" class="h-arrow"><b>亦庄地盛西路1号数码庄园</b></span></div>
+                    </div>
+                </div>
+
+                <div class="sub-tit">
+                    <i class="icon i-fiv"></i>
+                    <span class="s-t-tit">嘉宾</span>
+                    <div class="s-r">共10位</div>
+                </div>
+                <div id="guest" class="list-box row mt0">
+                    <div class="list-nh-row">
+                        <div class="l-l span2"><img src="images/test/a.jpg"></div>
+                        <div class="l-r span10"><span class="h-arrow"><b>
+                            <p class="username">刘鸿铭</p>
+                            <p class="userinfo">Lorem ipsum blolr sit amet,consecteter adipiscLorem ipsum blolr sit amet,consecteter adipiscLorem ipsum blolr sit amet,consecteter adipisc</p>
+                        </b></span></div>
+                    </div>
+                    <div class="list-nh-row">
+                        <div class="l-l span2"><img src="images/test/b.jpg"></div>
+                        <div class="l-r span10"><span class="h-arrow"><b>
+                            <p class="username">刘鸿铭</p>
+                            <p class="userinfo">Lorem ipsum blolr sit amet,consecteter adipisc</p>
+                        </b></span></div>
+                    </div>
+                    <div class="list-nh-row">
+                        <div class="l-l span2"><img src="images/test/c.jpg"></div>
+                        <div class="l-r span10"><span class="h-arrow"><b>
+                            <p class="username">刘鸿铭</p>
+                            <p class="userinfo">Lorem ipsum blolr sit amet,consecteter adipisc</p>
+                        </b></span></div>
+                    </div>
+                    <div class="list-nh-row">
+                        <div class="l-l span2"><img src="images/test/d.jpg"></div>
+                        <div class="l-r span10"><span class="h-arrow"><b>
+                            <p class="username">刘鸿铭</p>
+                            <p class="userinfo">Lorem ipsum blolr sit amet,consecteter adipisc</p>
+                        </b></span></div>
+                    </div>
+                    <div class="list-nh-row">
+                        <div class="l-l span2"><img src="images/test/e.jpg"></div>
+                        <div class="l-r span10"><span class="h-arrow"><b>
+                            <p class="username">刘鸿铭</p>
+                            <p class="userinfo">Lorem ipsum blolr sit amet,consecteter adipisc</p>
+                        </b></span></div>
+                    </div>
+                </div>
+
+                <div class="sub-tit">
+                    <i class="icon i-six"></i>
+                    <span class="s-t-tit">日程</span>
+                    <div class="s-r">共3天</div>
+                </div>
+                <div class="trip-box">
+                    <div class="trip-tit row">
+                        <div id="leftArrow" class="span2"><i class="icon i-l-arrow"></i></div>
+                        <div class="trip-day span8">
+                            <span id="tripDay"></span>
+                        </div>
+                        <div id="rightArrow" class="span2"><i class="icon i-r-arrow"></i></div>
+                    </div>
+                    <div id="tripCon" class="trip-con"> 
+                        <ul>
+                            <li class="active">13:00  嘉宾入场</li>
+                            <li>14:00  活动现场</li>
+                            <li>16:00  结束</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sub-tit">
+                    <i class="icon i-sev"></i>
+                    <span class="s-t-tit">详细介绍</span>
+                </div>
+                <div class="detial-box">
+                    <figure>
+                        <img src="images/test/demo.jpg">
+                        <figcaption>
+                            By foreign language teaching and Research Press in2002-3-1
+                             publishing qualified English translation certificate test toolboo
+                            k, the author is Zhuang yichuan. The structure of this book ha
+                            s two parts: "text" and "contrast between English andchnese". The text is divided into 10 parts.
+                        </figcaption>
+                    </figure>
+                </div>
+                
+                <div class="sub-tit">
+                    <i class="icon i-eig"></i>
+                    <span class="s-t-tit">回函</span>
+                    <div class="s-r-w">请填写回函内容</div>
+                </div>
+                <div class="reply-box">
+                    <div class="list-box row mt0">
+                        <div class="list-nh-row">
+                            <div class="span12">
+                                <div class="input-line">
+                                    <span>名字:</span>
+                                    <input type="text" name="username" placeholder="请输入名字">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-nh-row">
+                            <div class="span12">
+                                <div class="input-line">
+                                    <span>电话: </span>
+                                    <input type="text" name="username" placeholder="请输入电话">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-nh-row">
+                            <div class="span12">
+                                <div class="input-line">
+                                    <span>出席人数:</span>
+                                    <input type="text" name="username" placeholder="请输入电话">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-nh-row">
+                            <div class="span12">
+                                <div class="input-line">
+                                    <span>性别:</span>
+                                    <label>
+                                        <input type="radio" name="sex" value="男"> 男
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="sex" value="女"> 女
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-nh-row">
+                            <div class="span12">
+                                <div class="input-line" style="min-height: 60px">
+                                    留言:  
+                                    <textarea rows="3" placeholder="请输入留言">我们会准时参加，感谢您的邀请</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="replyed-box" style="display: none;">
+                    <div class="list-box row mt0">
+                        <div class="list-nh-row">
+                            <div class="span12">
+                                <div class="input-line">
+                                    <span>名字:</span><span>刘鹏飞</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-nh-row">
+                            <div class="span12">
+                                <div class="input-line" style="min-height: 60px">
+                                    <span>留言:</span><span>我们会准时参加，感谢您的邀请</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-nh-row">
+                            <div class="span12">
+                                <div class="input-line">
+                                    <span>电话: </span><span>13910733521</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-nh-row">
+                            <div class="span12">
+                                <div class="input-line">
+                                    <span>出席人数:</span><span>23</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="c-footer">
+                <p class="points">建议收藏活动，以方便下次打开</p>
+                <div class="f-btn disabled">回函</div>
+                <div id="fEditor" class="f-editor"><i class="icon i-editor"></i></div>
+            </section>
+        </section>
+    </article>
+
+
+<!--     
+    aid : 活动id,
+    name : "姓名",
+    message : "留言",
+    email : "邮箱",
+    sex : "性别",
+    identity_code : "身份证号",
+    company : "公司",
+    position : "职位",
+    attend_num : "出席人数",
+    phone : "电话"    
+--> 
+
+<!-- 弹层 S -->
+<section class="popup" style="display: none">
+    <!-- 关注 -->
+    <section id="mapPopup" class="map-popup">
+        <div id="mapContainer" style="width: 100%; height: 300px; border-radius: 5px"></div>
+    </section>
+    <!-- 用户详细 -->
+    <section id="userPopup" class="user-popup"></section>
+</section>
+<!-- 弹层 E -->
+
+<!-- build:js scripts/zepto.min.js -->
+<script src="scripts/zepto/zepto.js"></script>
+<script src="scripts/zepto/ajax.js"></script>
+<script src="scripts/zepto/event.js"></script>
+<script src="scripts/zepto/touch.js"></script>
+<script src="scripts/zepto/fx.js"></script>
+<script src="scripts/zepto/fx_methods.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/components.js -->
+<script type="text/javascript" src="scripts/otools.js"></script>
+<script type="text/javascript" src="scripts/dialog.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/audio.js -->
+<script src="scripts/audio.js"></script>
+<!-- endbuild -->
+<!-- build:js scripts/idangerous.swiper.js -->
+<script src="scripts/idangerous.swiper.js"></script>
+<!-- endbuild -->
+<script src="scripts/content.js"></script>
+
+</body>
+</html>

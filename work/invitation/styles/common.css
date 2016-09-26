@@ -1,0 +1,179 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b,u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td ,button{margin: 0px; padding: 0px; border: 0px none; outline: 0px none; vertical-align:baseline;background: none repeat scroll 0% 0% transparent;}
+ol,ul,li{list-style:none;}
+html,body{height: 100%;}
+body,textarea,input{
+	background:#fff; 
+	font-size:12px; 
+	color:#666; 
+	font-family:Arial,"Microsoft YaHei","微软雅黑","宋体"; 
+	font-weight:normal;
+}
+table{border-collapse:collapse;border-color:#ccc;border-spacing: 0px}
+.clearfix { 
+  *zoom: 1; 
+}
+i,em{font-style: normal;} 
+.clearfix:before, 
+.clearfix:after { 
+  display: table; 
+  line-height: 0; 
+  content: ""; 
+} 
+.clearfix:after { 
+  clear: both; 
+} 
+textarea{font-size: 14px}
+a{
+	text-decoration:none; 
+	outline: none; 
+	cursor:pointer; 
+	color:#666;
+	transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+	-moz-transition: background-color 0.2s, color 0.2s, border-color 0.2s; /* Firefox 4 */
+	-webkit-transition: background-color 0.2s, color 0.2s, border-color 0.2s; /* Safari 和 Chrome */
+	-o-transition: background-color 0.2s, color 0.2s, border-color 0.2s; /* Opera */
+}
+a:hover{
+	text-decoration:underline; 
+	outline: none; 
+	cursor:pointer; 
+	color:#459ae9
+}
+a.link-normal{color: #ff8800; text-decoration: none;}
+a.link-normal:hover{text-decoration: underline;}
+a.link-blue{color: #459ae9; text-decoration: none;}
+a.link-blue:hover{text-decoration: underline;}
+.clear{clear:both; height:0px; margin:0; padding:0; width:0; border:none; overflow:hidden;line-height: 0;}
+.gary{background:#ededed}
+/**改变input中placeholder颜色**/
+input::-webkit-input-placeholder {color: #a9a9a9 !important; }
+input:-moz-placeholder {color: #a9a9a9 !important; }
+input::-moz-placeholder {color: #a9a9a9 !important; }
+input:-ms-input-placeholder {color: #a9a9a9 !important; }
+/*普通标题*/
+h1{font-size: 14px; line-height: 30px;}
+h1 span{font-weight: normal; font-size: 12px; color: #999}
+h2{font-size: 14px; line-height: 30px; font-weight: normal;}
+p{line-height: 30px;}
+/**浮动**/
+.floatL{float: left;}
+.floatR{float: right;}
+.no-float{float: none}
+/**灰色直线**/
+.line{height: 1px; line-height: 1px; overflow: hidden; background: #e7e7eb; }
+/**按钮**/
+.btn{text-align: center;background:#008fde; color: #fff; border-radius: 2px; display: block;}
+.btn:hover{background-color:#27b3ff; color: #fff; text-decoration: none;}
+/**不可点击**/
+.btn-default{background: #e7e7eb; color: #bababa; cursor: default}
+.btn-default:hover{background: #e7e7eb; color: #bababa; cursor: default}
+/**26px高按钮**/
+.btn26{line-height:26px; font-size:12px}
+/**30px高按钮**/
+.btn30{line-height:30px; font-size:14px}
+/**40px高按钮**/
+.btn40{line-height:40px; font-size:14px}
+/**带+号的按钮**/
+.newbtn{padding: 0 20px; padding-left: 36px; background-image: url(../images/icon-new-btn.png); background-position: 20px center; background-repeat: no-repeat; float: left;}
+.newbtn:after{clear: both;}
+/**刷新文字按钮**/
+.flush-btn{margin-left:10px;}
+/**白色按钮**/
+.btn2{text-align: center; background: #fff; color: #666; border-radius: 2px; border:1px solid #e7e7eb; display: block;}
+.btn2:hover{background-color: #e7e7eb; color: #666; text-decoration: none;}
+/**直角按钮**/
+.btn3{text-align: center; background: #ff8800; color: #fff; display: block;}
+.btn3:hover{background-color: #e57a00; color: #fff; text-decoration: none;}
+/**提交按钮**/
+.submit{height: 40px; width: 112px; line-height: 40px; float: right; margin-right: 10px;}
+/**取消按钮**/
+.cancel{height: 38px; width: 110px; line-height: 38px; border: 1px solid #ddd; border-radius: 2px; background: #fff; text-align: center; color: #666; float: left; margin-left: 10px;}
+.cancel:hover{background: #e7e7eb; color: #666; text-decoration: none;}
+/**友情提示**/
+/*橙色带问号*/
+.prompt1{color: #f49645; background: url(../images/icon-prompt1.png) no-repeat 0 0; line-height: 16px; padding-left: 22px; margin-bottom: 15px}
+.prompt1 a{color: #f49645;}
+.prompt1 a:hover{text-decoration: none;}
+/*灰色不带问号*/
+.prompt2{color: #999; line-height: 16px; margin-bottom: 15px; font-size:12px; }
+/*灰色不带问号不加粗*/
+.prompt4{color: #999; line-height: 16px; margin-bottom: 15px; font-size:12px; font-weight: normal}
+/*灰色带问号*/
+.prompt3{line-height: 16px; margin-bottom: 15px; font-size:12px; font-weight:normal; background: url(../images/icon-prompt2.png) no-repeat 0 0; padding-left: 22px;}
+/**单行文本框**/
+.input-text{border: 1px solid #ddd; height: 40px; line-height: 40px; padding: 0 15px; width: 100%}
+.readonly{color: #666}
+/**复制按钮**/
+.copy{width:70px; height: 28px; text-align: center; line-height: 28px; background: #f4f5f9; display: block; border: 1px solid #ddd}
+.copy:hover{background: #e8e7ec; color: #666}
+/**提示框**/
+.tips{line-height: 20px; background:#fffaf6; border:1px solid #f8d9c1; color: #f58d34; padding: 0px 10px; text-align: justify; font-size: 12px;}
+/**30高度的间隔**/
+.h30{height: 30px;}
+/**上一步按钮**/
+.last-step{color: #f58d34; text-decoration: underline; line-height: 60px;}
+.last-step:hover{color: #f58d34; text-decoration: underline;}
+/**80%黑色半透明背景**/
+.bg-000-08{background: #000; width: 100%; height: 100%; position: absolute;left: 0; top: 0; opacity: 0.8; filter:alpha(opacity=80);}
+/********单行文本框********/
+.text{height: 28px; background: #fff; line-height: 28px; border: 1px solid #ddd; padding: 0 10px; font-size: 14px;}
+.text-lim{padding-right: 60px}
+/*下拉菜单选择*/
+.text-select{height: 28px; line-height: 28px; border: 1px solid #ddd; padding: 0 10px; font-size: 12px; background: url(../images/icon-arrow-d.png) no-repeat right center #fff; cursor: pointer;}
+/*时间日期选择*/
+.text-datetime{height: 28px; line-height: 28px; border: 1px solid #ddd; padding: 0 10px; font-size: 12px; background: url(../images/icon-datetime.png) no-repeat right center #fff; cursor: pointer;}
+/*文本框宽度*/
+.text-width68{width: 48px;}
+.text-width80{width: 55px;}
+.text-width100{width: 80px;}
+.text-width112{width: 92px;}
+.text-width120{width: 100px;}
+.text-width140{width: 120px;}
+.text-width155{width: 135px;}
+.text-width170{width: 150px;}
+.text-width210{width: 190px;}
+.text-width320{width: 300px;}
+.text-width290{width: 270px;}
+.text-width380{width: 360px;}
+.text-width400{width: 380px;}
+.text-width440{width: 420px;}
+.text-width488{width: 468px;}
+.text-width508{width: 488px;}
+.text-width590{width: 570px;}
+.text-readonly{background: #f4f5f9}
+
+.text-lim.text-width140{width: 70px;}
+.text-lim.text-width155{width: 85px;}
+.text-lim.text-width170{width: 100px;}
+.text-lim.text-width210{width: 140px;}
+.text-lim.text-width320{width: 250px;}
+.text-lim.text-width290{width: 220px;}
+.text-lim.text-width380{width: 310px;}
+.text-lim.text-width400{width: 330px;}
+.text-lim.text-width440{width: 370px;}
+.text-lim.text-width488{width: 418px;}
+.text-lim.text-width508{width: 438px;}
+.text-lim.text-width590{width: 520px;}
+.text-lim.text-readonly{background: #f4f5f9}
+/**********文本域**************/
+.textarea{border:1px solid #ddd; padding:10px; line-height: 26px; }
+/******复选框********/
+.checkbox{width:16px; height: 16px; margin: 0; padding: 0}
+/******错误提示框*****/
+.errortitle{border-color:#f83030;}
+.errorinput{border-color:#f83030;}
+.errorprompt{position: absolute; color: #f83030; line-height: 20px; height: 20px; overflow: hidden; padding: 0; margin: 0; text-align: left; display: block; font-style: normal; font-size: 12px; z-index: 9}
+.errorprompt2{color: #f83030; line-height: 20px; height: 20px; overflow: hidden; padding: 0; margin: 0; text-align: left; font-style: normal; font-size: 12px; z-index: 9}
+/*******body背景样式*******/
+.frame-border-bg{background: #195cb0 none repeat scroll 0 0;}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+.row{
+  width: 100%;
+  @include clearfix();
+
+  .span1,.span2,.span3,.span4,.span5,.span6,.span7,.span8,.span9,.span10,.span11,.span12{
+    float: left;
+  }
+  .span1{
+    width: 8.33333333%;
+  }
+  .span2{
+    width: 16.66666666%;
+  }
+  .span3{
+    width: 25%;
+  }
+  .span4{
+    width: 33.33333333%;
+  }
+  .span5{
+    width: 41.66666666%;
+  }
+  .span6{
+    width: 50%;
+  }
+  .span7{
+    width: 58.33333333%;
+  }
+  .span8{
+    width: 66.66666666%;
+  }
+  .span9{
+    width: 75%;
+  }
+  .span10{
+    width: 83.33333333%;
+  }
+  .span11{
+    width: 91.66666666%;
+  }
+  .span12{
+    width: 100%;
+  }
+}
