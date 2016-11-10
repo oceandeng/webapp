@@ -25,17 +25,18 @@
 						<div class="row">
 							<div class="col-md-9 clearfix card-con">
 								<div upload data-imgwarp="#cardBg">
-									<input type="file">
+									<input type="file" accept="image/*">
 									<div class="sel-bg click-btn">选择背景</div>
+									<input type="hidden" ng-model="card_setting_basic.basicInfo.background">
 								</div>
 								<div class="card-box">
 									<div id="cardBg" class="card-bg">
-										<img src="images/test/card-bg.png" alt="">
+										<img src="{{card_setting_basic.basicInfo.background}}" alt="">
 									</div>
 									<div class="member-con">
 										<div class="logo">
-											<div class="logo-p">
-												<img src="images/test/logo.jpg" alt="">
+											<div id="logowarp" class="logo-p">
+												<img src="{{card_setting_basic.basicInfo.logo}}" alt="">
 											</div>
 											<p class="name">
 												<span id="cardTit" style="color: {{card_setting_basic.basicInfo.titcolor}}">十渡红梅农家院</span><br>
@@ -54,17 +55,17 @@
 
 								<div class="card-edit">
 									<div class="colorSelector">
-										<div style="background-color: {{card_setting_basic.basicInfo.titcolor}}" data-invo="#cardTit" data-oldcolor="{{card_setting_basic.basicInfo.titcolor}}" data-value="#titcolor" color-picker></div>
+										<div style="background-color: {{card_setting_basic.basicInfo.titcolor}}" data-invo="#cardTit" data-oldcolor="card_setting_basic.basicInfo.titcolor" data-value="#titcolor" color-picker></div>
 										<p>标题颜色</p>
 										<input id="titcolor" type="hidden" ng-model="card_setting_basic.basicInfo.titcolor">
 									</div>
 									<div class="colorSelector">
-										<div style="background-color: {{card_setting_basic.basicInfo.levcolor}}" data-invo="#cardLev" data-oldcolor="{{card_setting_basic.basicInfo.levcolor}}" data-value="#levcolor" color-picker></div>
+										<div style="background-color: {{card_setting_basic.basicInfo.levcolor}}" data-invo="#cardLev" data-oldcolor="card_setting_basic.basicInfo.levcolor" data-value="#levcolor" color-picker></div>
 										<p>等级颜色</p>
 										<input id="levcolor" type="hidden" ng-model="card_setting_basic.basicInfo.levcolor">
 									</div>
 									<div class="colorSelector">
-										<div style="background-color: {{card_setting_basic.basicInfo.numcolor}}" data-invo="#cardNum" data-oldcolor="{{card_setting_basic.basicInfo.numcolor}}" data-value="#numcolor" color-picker></div>
+										<div style="background-color: {{card_setting_basic.basicInfo.numcolor}}" data-invo="#cardNum" data-oldcolor="card_setting_basic.basicInfo.numcolor" data-value="#numcolor" color-picker></div>
 										<p>号码颜色</p>
 										<input id="numcolor" type="hidden" ng-model="card_setting_basic.basicInfo.numcolor">
 									</div>
@@ -89,12 +90,14 @@
 
 				</div>
 				<div class="upload">
-					<div id="upWrap" class="up-wrap"></div>
-					<div upload data-imgwarp="#upWrap">
-						<input type="file">
-						<div class="up-btn click-btn">上传logo</div>
+					<div id="upWrap" class="up-wrap">
+						<img src="{{card_setting_basic.basicInfo.logo}}" alt="">
 					</div>
-					<input type="hidden" ng-model="card_setting_basic.basicInfo.logo">
+					<div upload data-imgwarp="#upWrap" data-iwarp="#logowarp">
+						<input type="file" accept="image/*">
+						<div class="up-btn click-btn">上传logo</div>
+						<input type="hidden" ng-model="card_setting_basic.basicInfo.logo">
+					</div>
 				</div>
 			</section>
 		</section>

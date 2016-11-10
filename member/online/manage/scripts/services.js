@@ -69,6 +69,12 @@ app.service("services", ["$rootScope", "commonSvc", function($rootScope, commonS
         return commonSvc.ajaxData(json, url);
     }
 
+    // 接口描述：图片上传
+    services.getStaticPath = function(json){
+        var url = $rootScope.apiUrl + '/UploadImg/getStaticPath';
+        return commonSvc.ajaxData(json, url);
+    }
+
     return services;
 }])
 

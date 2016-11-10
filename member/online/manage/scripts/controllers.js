@@ -79,7 +79,9 @@ controllers.controller('memberSetCtrl', ["$rootScope", "$scope", "services", fun
         // $scope.card_setting_basic.basicInfo.numcolor = "#58565d";
 
         var params = {
-            'tenant_id': $rootScope.tenant_id
+            'tenant_id': $rootScope.tenant_id,
+            'card_setting_basic': 'card_setting_basic',
+            'card_setting_activation': 'card_setting_activation'
         }
 
         services.getSetting(params).then(function(res){
@@ -90,6 +92,15 @@ controllers.controller('memberSetCtrl', ["$rootScope", "$scope", "services", fun
 
             // $scope.notes = data.card_setting_basic.cardDetails.notes;
             // $scope.privilege = data.card_setting_basic.cardDetails.privilege;
+        });
+
+
+        services.getStaticPath({'tenant_id': $rootScope.tenant_id}).then(function(res){
+            if(res.status == 101){
+                $rootScope.staticPath = res.data.static_path;
+            }else{
+                oTools.alertmess('获取图片地址错误')
+            }
         })
     }
 }]);
@@ -113,7 +124,6 @@ controllers.controller('memberLevelSetCtrl', ["$rootScope", "$scope", "commonSvc
         params.tenant_id = $rootScope.tenant_id;
 
         services.setSetting(params).then(function(res){
-            console.log(res);
             if(res.status == '101'){
                 oTools.alertmess('保存成功！');
             }else{
@@ -124,7 +134,8 @@ controllers.controller('memberLevelSetCtrl', ["$rootScope", "$scope", "commonSvc
 
     function init(){
         var params = {
-            'tenant_id': $rootScope.tenant_id
+            'tenant_id': $rootScope.tenant_id,
+            'card_setting_level': 'card_setting_level'
         }
 
         services.getSetting(params).then(function(res){
@@ -133,7 +144,6 @@ controllers.controller('memberLevelSetCtrl', ["$rootScope", "$scope", "commonSvc
             $scope.levelset = data.levelset;
             $scope.condition = data.levelrules.condition == 1 ? true : false;
             $scope.validity = data.levelrules.validity == 1 ? true : false;
-            console.log(data);
         })
     }
 
@@ -156,16 +166,20 @@ controllers.controller('memberIntegralSetCtrl', ["$rootScope", "$scope", "common
 
         var params = $scope.data;
         params.tenant_id = $rootScope.tenant_id;
-console.log(params);
 
         services.setSetting(params).then(function(res){
-            console.log(res);
+            if(res.status == '101'){
+                oTools.alertmess('保存成功！');
+            }else{
+                oTools.alertmess(res.msg)
+            }
         });
     }
 
     function init(){
         var params = {
-            'tenant_id': $rootScope.tenant_id
+            'tenant_id': $rootScope.tenant_id,
+            'card_setting_score': 'card_setting_score'
         }
 
         services.getSetting(params).then(function(res){
@@ -173,7 +187,6 @@ console.log(params);
 
             $scope.card_setting_score = data;
             $scope.validity = data.validity == 1 ? true : false;
-            console.log(data);
         })
     }
 }]);

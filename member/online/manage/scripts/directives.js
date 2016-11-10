@@ -184,9 +184,14 @@ directives.directive('colorPicker', ["$parse", function($parse){
 		restrict: 'EA',
 		link: function(scope, element, attr){
 			var _id = attr['invo'],
-				oldcolor = attr['oldcolor'],
+				oldcolorScope = attr['oldcolor'],
+				oldcolor = '',
 				val = attr['value'],
 				scopeProp = $(val).attr('ng-model');
+
+				scope.$watch(oldcolorScope, function(newValue, oldValue, scope) {
+					oldcolor = newValue;
+				});
 
 			element.ColorPicker({
 			    color: '#0000ff',
@@ -216,16 +221,18 @@ directives.directive('colorPicker', ["$parse", function($parse){
 
 		}
 	}
-}])
+}]);
 
-
-directives.directive('upload', ["$rootScope", function($rootScope){
+directives.directive('upload', ["$rootScope", "$parse", function($rootScope, $parse){
 	return {
 		restrict: 'EA',
 		link: function(scope, element, attr){
             var uploadimgFile = element.find("input[type='file']"),
             	$upBtn = element.find('.click-btn'),
-            	$upWarp = $(attr['imgwarp']);
+            	$upWarp = $(attr['imgwarp']),
+            	$iWarp = $(attr['iwarp']),
+            	$upVal = element.find("input[type='hidden']"),
+				scopeProp = $upVal.attr('ng-model');
 
 			$upBtn.on('click', function(){
 				$(this).siblings('input[type="file"]').click();
@@ -237,11 +244,19 @@ directives.directive('upload', ["$rootScope", function($rootScope){
 					url: ajaxurl,
 					success: function(res, ele){
 						var res = JSON.parse(res);
-						var img = new Image();
-						img.onload = function(){
-							$upWarp.html(img);
+						if(res.staus == 101){
+							var img = new Image();
+							img.onload = function(){
+								$iWarp.html('<img src="' + img.src + '" alt="" />');
+								$upWarp.html('<img src="' + img.src + '" alt="" />');
+							}
+							img.src = $rootScope.staticPath + res.data.imgpath;
+							$upVal.val(img.src);
+							$parse(scopeProp).assign(scope, $upVal.val());
+
+						}else{
+							oTools.alertmess(res.msg);
 						}
-						img.src = res.data.imgpath;
 					},
 				});
 			}
@@ -311,8 +326,8 @@ directives.directive('levelSet', ["$rootScope", function($rootScope){
 
 				$son.last().find('input').last().on('blur', function(){
 					var $_this = $(this),
-						_val = $_this.val(),
-						prevNum = $_this.parent().find('.num').text();
+						_val = parseInt($_this.val()),
+						prevNum = parseInt($_this.parent().find('.num').text());
 
 
 					if(_val <= prevNum){

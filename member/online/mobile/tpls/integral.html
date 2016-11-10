@@ -1,0 +1,26 @@
+<articel class="integral" all-height>
+	<section class="content">
+		<div class="top-bar">
+			<img src="images/l-t-bg.jpg" alt="">
+			<div class="t-b-con">
+				<h4>当前积分</h4>
+				<div class="t-b-s">
+					<img src="images/integral-icon.jpg">
+					<p>{{cardScore}}</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="i-record">
+			<div class="sub-tit">
+				积分纪录
+			</div>
+			<div class="list-box row mt0">
+	            <div class="list-nh-row" ng-repeat="item in history_list">
+	                <div class="l-l span6 lh45 tal"><span>{{item.transaction_type}}</span></div>
+	                <div class="l-r span6 lh45 tar"><span ng-class="{'red':item.isRed , 'g999':item.isG999}">{{item.score_amount | scoreAmount}}</span></div>
+	            </div>
+	        </div>
+		</div>
+	</section>
+</articel>

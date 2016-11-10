@@ -1,0 +1,71 @@
+<article class="index" all-height>
+	<section class="content">
+		<section class="member-card-box">
+			<div class="member-card">
+				<img class="m-c-img" src="{{basicInfo.background}}" alt="">
+				<div class="member-con">
+					<div class="logo">
+						<div class="logo-p">
+							<!-- <img src="images/test/logo.jpg" alt=""> -->
+							<img src="{{basicInfo.logo}}" alt="">
+						</div>
+						<p class="name" style="color: {{basicInfo.titcolor}}">{{nickname}}</p>
+					</div>
+					<div class="card-num"><span style="color: {{basicInfo.numcolor}}">{{cardNum}}</span></div>
+					<div class="QR" touch-href="QR">
+						<i class="icon i-QR"></i>
+					</div>
+					<div class="info" touch-href="info">
+						<i class="icon i-info"></i>
+					</div>
+				</div>
+			</div>
+			<div class="m-menu">
+				<div class="i-m-item" touch-href="level">
+					<div class="i-box bg-violet"><i class="icon i-level"></i></div>
+					<p>会员等级</p>
+				</div>
+<!-- 				<div class="i-m-item">
+					<div class="i-box bg-yellow"><i class="icon i-store"></i></div>
+					<p>储值 {{store}}</p>
+				</div> -->
+				<div class="i-m-item" touch-href="integral">
+					<div class="i-box bg-pink"><i class="icon i-integral"></i></div>
+					<p>积分 {{integral}}</p>
+				</div>
+			</div>
+		</section>
+<!-- 		<section class="tool-list">
+			<div class="list-box row">
+	            <div class="list-row">
+	                <div class="l-l span2"><span><i class="icon i-privilege"></i>&nbsp;</span></div>
+	                <div class="l-r span10"><span class="h-arrow"><b>会员特权</b></span></div>
+	            </div>
+	            <div class="list-row">
+	                <div class="l-l span2"><span><i class="icon i-inte-shop"></i>&nbsp;</span></div>
+	                <div class="l-r span10"><span class="h-arrow"><b>积分商城</b></span></div>
+	            </div>
+	        </div>
+		</section> -->
+	</section>
+
+	<footer class="footer-bar">
+		<section class="f-row">
+			<div class="list-nh-row row">
+				<div class="l-l span10" touch-href="map" data-params='{"latitude": {{latitude}}, "longitude": {{longitude}}}'>
+					<div class="address">
+						<p>{{nickname}}</p>
+						<p class="g999">{{address}}</p>
+					</div>
+				</div>
+				<div class="l-r span2">
+					<div class="phone-btn">
+						<a href="tel:{{phone}}">
+							<img src="images/i-iphone.png">
+						</a>
+					</div>
+				</div>			
+			</div>
+		</section>
+	</footer>
+</article>
